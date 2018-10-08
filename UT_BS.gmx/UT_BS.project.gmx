@@ -19,6 +19,7 @@
     <object>objects\obj_jugador</object>
     <object>objects\obj_teclado</object>
     <object>objects\obj_cuadrado</object>
+    <object>objects\obj_nombre</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\Room_2</room>
