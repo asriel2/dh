@@ -1,3 +1,3 @@
-# Undertale Simple Battle System
+# Undertale simple battle system
 
-• Simple undertale based battle system made in Game Maker Studio 1.
+• Simple undertale based battle system made in GMS 1.
