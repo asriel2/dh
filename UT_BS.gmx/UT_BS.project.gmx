@@ -21,9 +21,14 @@
   <objects name="objects">
     <object>objects\obj_jugador</object>
     <object>objects\obj_teclado</object>
+<<<<<<< HEAD
     <object>objects\obj_solido</object>
     <object>objects\obj_pared_hor</object>
     <object>objects\obj_pared_ver</object>
+=======
+    <object>objects\obj_cuadrado</object>
+    <object>objects\obj_nombre</object>
+>>>>>>> 4db47e9802f911b5e7ad9be47ae2831f86f641f3
   </objects>
   <rooms name="rooms">
     <room>rooms\Room_1</room>
