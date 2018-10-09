@@ -6,7 +6,10 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\spr_jugador_test</sprite>
+    <sprite>sprites\spr_jugador_ex</sprite>
+    <sprite>sprites\spr_pared_h</sprite>
+    <sprite>sprites\spr_pared_v</sprite>
+    <sprite>sprites\spr_corazon</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -18,10 +21,12 @@
   <objects name="objects">
     <object>objects\obj_jugador</object>
     <object>objects\obj_teclado</object>
-    <object>objects\obj_cuadrado</object>
+    <object>objects\obj_solido</object>
+    <object>objects\obj_pared_hor</object>
+    <object>objects\obj_pared_ver</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\Room_2</room>
+    <room>rooms\Room_1</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
