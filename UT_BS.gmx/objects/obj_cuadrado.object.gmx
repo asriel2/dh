@@ -25,17 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-<<<<<<< HEAD
             <string>///Dibujar el cuadrado
 draw_self();
 draw_set_color(c_white);
 draw_rectangle(96,416,480,192,true);
-=======
-            <string>draw_set_color(c_white);
-draw_rectangle(64,384,576,192,true);
-solid=true;
-
->>>>>>> 4db47e9802f911b5e7ad9be47ae2831f86f641f3
 </string>
           </argument>
         </arguments>
