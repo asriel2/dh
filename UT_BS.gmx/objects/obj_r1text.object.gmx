@@ -4,7 +4,7 @@
   <solid>0</solid>
   <visible>-1</visible>
   <depth>0</depth>
-  <persistent>0</persistent>
+  <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -54,37 +54,43 @@ oScale = 1.0;
           <argument>
             <kind>1</kind>
             <string>///Actualizar el objeto
-if (canWrite || keyboard_check(vk_backspace))
+if (room == Room_Name)
 {
-    if (string_width(nombre) &lt;= 270)
+    if (canWrite)
     {
-        nombre = keyboard_string;   
-    }
-} else {
-    keyboard_string = nombre;
-}
-
-if (keyboard_check_released(vk_enter) &amp;&amp; string_width(nombre) &gt;= 40 &amp;&amp; canSee)
-{
-    canSee = false;
-    canWrite = false;
-} else if (canSee == false) {
-    if (keyboard_check_released(vk_left))
-    {
-        sCount = 0;
-    }
-    if (keyboard_check_released(vk_right)) 
-    {
-        sCount = 1;
-    }
-    if (keyboard_check_released(vk_enter))
-    {
-        if (sCount == 0)
+        if (string_length(nombre) &lt; 7)
         {
-            canSee = true;
-            canWrite = true;
-        } else if (sCount == 1) {
-            room_goto(Room_1);
+            nombre = keyboard_string;   
+        } else if (keyboard_check(vk_backspace)) {
+            nombre = string_delete(nombre, string_length(nombre) - 1, 1);
+            keyboard_string = nombre;
+        }
+    } else {
+        keyboard_string = nombre;
+    }
+    
+    if (keyboard_check_released(vk_enter) &amp;&amp; string_width(nombre) &gt;= 40 &amp;&amp; canSee)
+    {
+        canSee = false;
+        canWrite = false;
+    } else if (canSee == false) {
+        if (keyboard_check_released(vk_left))
+        {
+            sCount = 0;
+        }
+        if (keyboard_check_released(vk_right)) 
+        {
+            sCount = 1;
+        }
+        if (keyboard_check_released(vk_enter))
+        {
+            if (sCount == 0)
+            {
+                canSee = true;
+                canWrite = true;
+            } else if (sCount == 1) {
+                room_goto(Room_1);
+            }
         }
     }
 }
@@ -114,34 +120,41 @@ if (keyboard_check_released(vk_enter) &amp;&amp; string_width(nombre) &gt;= 40 &
 draw_set_color(c_white);
 draw_set_halign(fa_center);
 draw_set_font(ut_ebits_font);
-
-if (canSee)
-{
-    rrx2 = random_range(1, -1);
-    rry2 = random_range(1, -1);
-    rrx = random_range(1, -1);
-    rry = random_range(1, -1);
-    draw_text(320 + rrx2, 150 + rry2, "¿Cual es tu nombre?");
-    draw_text(320 + rrx, 220 + rry, nombre);
+    
+if (room == Room_Name)
+{   
+    if (canSee)
+    {
+        rrx2 = random_range(1, -1);
+        rry2 = random_range(1, -1);
+        rrx = random_range(1, -1);
+        rry = random_range(1, -1);
+        draw_text(320 + rrx2, 150 + rry2, "¿Cual es tu nombre?");
+        draw_text(320 + rrx, 220 + rry, nombre);
+    } else {
+        draw_text(320, 100, "Es correcto este nombre?");
+        if (sCount == 0)
+        {
+            draw_text_color(60, 410, "No", c_yellow, c_yellow, c_yellow, c_yellow, 1);
+            draw_text_color(580, 410, "Si", c_white, c_white, c_white, c_white, 1);
+        }
+        if (sCount == 1) 
+        {
+            draw_text_color(60, 410, "No", c_white, c_white, c_white, c_white, 1);
+            draw_text_color(580, 410, "Si", c_yellow, c_yellow, c_yellow, c_yellow, 1);
+        }
+        rrx = random_range(1.5, -1.5);
+        rry = random_range(1.5, -1.5);
+        if (oScale &lt;= 2.19)
+        {
+            oScale += 0.01;
+        }
+        draw_text_transformed(320 + rrx, 220 + rry + 0.01, nombre, oScale, oScale, 0);
+    }
 } else {
-    draw_text(320, 100, "Es correcto este nombre?");
-    if (sCount == 0)
-    {
-        draw_text_color(60, 410, "No", c_yellow, c_yellow, c_yellow, c_yellow, 1);
-        draw_text_color(580, 410, "Si", c_white, c_white, c_white, c_white, 1);
-    }
-    if (sCount == 1) 
-    {
-        draw_text_color(60, 410, "No", c_white, c_white, c_white, c_white, 1);
-        draw_text_color(580, 410, "Si", c_yellow, c_yellow, c_yellow, c_yellow, 1);
-    }
-    rrx = random_range(1.5, -1.5);
-    rry = random_range(1.5, -1.5);
-    if (oScale &lt;= 2.19)
-    {
-        oScale += 0.01;
-    }
-    draw_text_transformed(320 + rrx, 220 + rry + 0.01, nombre, oScale, oScale, 0);
+    draw_set_halign(fa_left);
+    draw_set_font(ut_hachicro_font);
+    draw_text_transformed(33, 400, nombre, 0.7, 0.7, 0);
 }
 </string>
           </argument>

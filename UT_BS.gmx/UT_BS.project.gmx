@@ -24,6 +24,7 @@
   </scripts>
   <fonts name="fonts">
     <font>fonts\ut_ebits_font</font>
+    <font>fonts\ut_hachicro_font</font>
   </fonts>
   <objects name="objects">
     <object>objects\obj_jugador</object>
