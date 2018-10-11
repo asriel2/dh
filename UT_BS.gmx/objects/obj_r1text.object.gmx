@@ -58,7 +58,7 @@ if (room == Room_Name)
 {
     if (canWrite)
     {
-        if (string_length(nombre) &lt; 7)
+        if (string_length(nombre) &lt; 8)
         {
             nombre = keyboard_string;   
         } else if (keyboard_check(vk_backspace)) {
@@ -69,7 +69,7 @@ if (room == Room_Name)
         keyboard_string = nombre;
     }
     
-    if (keyboard_check_released(vk_enter) &amp;&amp; string_width(nombre) &gt;= 40 &amp;&amp; canSee)
+    if (keyboard_check_released(vk_enter) &amp;&amp; string_length(nombre) &gt;= 1 &amp;&amp; canSee)
     {
         canSee = false;
         canWrite = false;
@@ -117,12 +117,14 @@ if (room == Room_Name)
           <argument>
             <kind>1</kind>
             <string>///Dibujar los textos
-draw_set_color(c_white);
-draw_set_halign(fa_center);
-draw_set_font(ut_ebits_font);
-    
+lvl = 19;
+hp = 20;
+thp = (20 + ((lvl - 1) * 4));
 if (room == Room_Name)
 {   
+    draw_set_color(c_white);
+    draw_set_halign(fa_center);
+    draw_set_font(ut_ebits_font);
     if (canSee)
     {
         rrx2 = random_range(1, -1);
@@ -153,8 +155,18 @@ if (room == Room_Name)
     }
 } else {
     draw_set_halign(fa_left);
+    draw_set_color(c_white);
     draw_set_font(ut_hachicro_font);
-    draw_text_transformed(33, 400, nombre, 0.7, 0.7, 0);
+    draw_text(30, 398, nombre);
+    draw_text(30 + string_width(nombre) + 20, 398, "LV");
+    draw_text(30 + string_width(nombre) + 20 + 40, 398, lvl);
+    draw_set_font(ut_hachico_font2);
+    draw_set_color(c_red);
+    draw_rectangle(274, 399, 274 + (24 + (5 * (lvl - 1))), 420, false); 
+    draw_set_color(c_white);
+    draw_text(238, 400, "hp");
+    draw_set_font(ut_hachicro_font);
+    draw_text(274 + (24 + (5 * (lvl - 1))) + 18, 398, string(hp) + "/" + string(thp));
 }
 </string>
           </argument>
