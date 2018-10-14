@@ -30,6 +30,7 @@ vida = 100;
 velocidad = 4;
 velocidadver = 0;
 velocidadhor = 0;
+canMove = true;
 </string>
           </argument>
         </arguments>
@@ -53,35 +54,38 @@ velocidadhor = 0;
           <argument>
             <kind>1</kind>
             <string>///Actualizar el jugador
-velocidadver = velocidad * obj_teclado.y_axis;
-velocidadhor = velocidad * obj_teclado.x_axis;
-
-//Colision ultra perfecta
-pm = place_meeting(x + velocidadhor, y + velocidadver, obj_solido);
-cl = collision_line(x, y, x + velocidadhor, y + velocidadver, obj_solido, false, false);
-
-if (pm || cl)
+if (canMove)
 {
-    //hor colision
-    for (var i = 0; i &lt; abs(velocidadhor); ++i)
+    velocidadver = velocidad * obj_teclado.y_axis;
+    velocidadhor = velocidad * obj_teclado.x_axis;
+    
+    //Colision ultra perfecta
+    pm = place_meeting(x + velocidadhor, y + velocidadver, obj_solido);
+    cl = collision_line(x, y, x + velocidadhor, y + velocidadver, obj_solido, false, false);
+    
+    if (pm || cl)
     {
-        if (place_meeting(x + sign(velocidadhor), y, obj_solido)) then break;
-        x += sign(velocidadhor);
+        //hor colision
+        for (var i = 0; i &lt; abs(velocidadhor); ++i)
+        {
+            if (place_meeting(x + sign(velocidadhor), y, obj_solido)) then break;
+            x += sign(velocidadhor);
+        }
+        
+        //ver colision
+        for (var i = 0; i &lt; abs(velocidadver); ++i)
+        {
+            if (place_meeting(x, y + sign(velocidadver), obj_solido)) then break;
+            y += sign(velocidadver);
+        }
+        
+        velocidadver = 0;
+        velocidadhor = 0;
     }
     
-    //ver colision
-    for (var i = 0; i &lt; abs(velocidadver); ++i)
-    {
-        if (place_meeting(x, y + sign(velocidadver), obj_solido)) then break;
-        y += sign(velocidadver);
-    }
-    
-    velocidadver = 0;
-    velocidadhor = 0;
+    hspeed = velocidadhor;
+    vspeed = velocidadver;
 }
-
-hspeed = velocidadhor;
-vspeed = velocidadver;
 </string>
           </argument>
         </arguments>

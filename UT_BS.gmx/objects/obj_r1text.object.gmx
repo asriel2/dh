@@ -58,7 +58,7 @@ if (room == Room_Name)
 {
     if (canWrite)
     {
-        if (string_length(nombre) &lt; 8)
+        if (string_length(nombre) &lt; 7)
         {
             nombre = keyboard_string;   
         } else if (keyboard_check(vk_backspace)) {
@@ -74,11 +74,11 @@ if (room == Room_Name)
         canSee = false;
         canWrite = false;
     } else if (canSee == false) {
-        if (keyboard_check_released(vk_left))
+        if (keyboard_check_released(vk_left)  || keyboard_check_released(ord('A')))
         {
             sCount = 0;
         }
-        if (keyboard_check_released(vk_right)) 
+        if (keyboard_check_released(vk_right) || keyboard_check_released(ord('D')) ) 
         {
             sCount = 1;
         }

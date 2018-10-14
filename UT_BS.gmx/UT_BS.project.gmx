@@ -4,9 +4,10 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sound>sound\snd_menu_select</sound>
+  </sounds>
   <sprites name="sprites">
-    <sprite>sprites\spr_jugador_ex</sprite>
     <sprite>sprites\spr_pared_h</sprite>
     <sprite>sprites\spr_pared_v</sprite>
     <sprite>sprites\spr_corazon</sprite>
@@ -14,6 +15,11 @@
     <sprite>sprites\spr_mercy_button</sprite>
     <sprite>sprites\spr_act_button</sprite>
     <sprite>sprites\spr_item_button</sprite>
+    <sprite>sprites\spr_sans</sprite>
+    <sprite>sprites\spr_fight_button_s</sprite>
+    <sprite>sprites\spr_mercy_button_s</sprite>
+    <sprite>sprites\spr_act_button_s</sprite>
+    <sprite>sprites\spr_item_button_s</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -38,6 +44,9 @@
     <object>objects\obj_act_button</object>
     <object>objects\obj_item_button</object>
     <object>objects\obj_mercy_button</object>
+    <object>objects\obj_sans</object>
+    <object>objects\obj_button</object>
+    <object>objects\obj_menu</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\Room_Name</room>
