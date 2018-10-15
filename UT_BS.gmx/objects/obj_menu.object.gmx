@@ -27,11 +27,15 @@
             <kind>1</kind>
             <string>///Inicializar el menu
 menuIndex = 0;
-isPlayerOnBattle = false;
+isPlayerOnBattle = true;
 cTurn = false;
 pTransladingToMenu = false;
 pTransladingToArena = false;
 pTurn = false;
+cLine1 = instance_create(0, 0, obj_bbline);
+cLine2 = instance_create(0, 0, obj_bbline);
+cLine3 = instance_create(0, 0, obj_bbline);
+cLine4 = instance_create(0, 0, obj_bbline);
 </string>
           </argument>
         </arguments>
@@ -108,6 +112,8 @@ if(!isPlayerOnBattle)
     if (obj_item_button.sprite_index != spr_item_button) obj_item_button.sprite_index = spr_item_button;
     if (obj_mercy_button.sprite_index != spr_mercy_button) obj_mercy_button.sprite_index = spr_mercy_button;
 }
+
+scr_create_bbox(320, 240, 198, 41, cLine1, cLine2, cLine3, cLine4);
 </string>
           </argument>
         </arguments>

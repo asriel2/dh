@@ -8,8 +8,6 @@
     <sound>sound\snd_menu_select</sound>
   </sounds>
   <sprites name="sprites">
-    <sprite>sprites\spr_pared_h</sprite>
-    <sprite>sprites\spr_pared_v</sprite>
     <sprite>sprites\spr_corazon</sprite>
     <sprite>sprites\spr_fight_button</sprite>
     <sprite>sprites\spr_mercy_button</sprite>
@@ -20,12 +18,14 @@
     <sprite>sprites\spr_mercy_button_s</sprite>
     <sprite>sprites\spr_act_button_s</sprite>
     <sprite>sprites\spr_item_button_s</sprite>
+    <sprite>sprites\spr_bbline</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="utilidades">
       <script>scripts\scr_teclado.gml</script>
+      <script>scripts\scr_create_bbox.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -37,8 +37,6 @@
     <object>objects\obj_jugador</object>
     <object>objects\obj_teclado</object>
     <object>objects\obj_solido</object>
-    <object>objects\obj_pared_hor</object>
-    <object>objects\obj_pared_ver</object>
     <object>objects\obj_r1text</object>
     <object>objects\obj_fight_button</object>
     <object>objects\obj_act_button</object>
@@ -47,6 +45,7 @@
     <object>objects\obj_sans</object>
     <object>objects\obj_button</object>
     <object>objects\obj_menu</object>
+    <object>objects\obj_bbline</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\Room_Name</room>
