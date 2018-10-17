@@ -25,7 +25,10 @@
   <scripts name="scripts">
     <scripts name="utilidades">
       <script>scripts\scr_teclado.gml</script>
-      <script>scripts\scr_create_bbox.gml</script>
+      <script>scripts\create_bbox.gml</script>
+      <script>scripts\mover_linealmente.gml</script>
+      <script>scripts\mover_einout.gml</script>
+      <script>scripts\mover_ein.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">

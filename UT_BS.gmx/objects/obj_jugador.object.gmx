@@ -26,7 +26,6 @@
           <argument>
             <kind>1</kind>
             <string>///Inicializar al jugador
-vida = 100;
 velocidad = 4;
 velocidadver = 0;
 velocidadhor = 0;
@@ -85,6 +84,9 @@ if (canMove)
     
     hspeed = velocidadhor;
     vspeed = velocidadver;
+} else {
+    hspeed = 0;
+    vspeed = 0;
 }
 </string>
           </argument>
