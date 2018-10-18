@@ -164,9 +164,9 @@ if (room == Room_Name)
     draw_set_color(c_red);
     draw_rectangle(274, 399, 274 + (24 + (5 * (lvl - 1))), 420, false); 
     draw_set_color(c_white);
-    draw_text(238, 400, "hp");
+    draw_text(238, 400, "HP");
     draw_set_font(ut_hachicro_font);
-    draw_text(274 + (24 + (5 * (lvl - 1))) + 18, 398, string(hp) + "/" + string(thp));
+    draw_text(274 + (24 + (5 * (lvl - 1))) + 18, 398, string(hp) + " / " + string(thp));
 }
 </string>
           </argument>

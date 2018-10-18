@@ -27,13 +27,15 @@
             <kind>1</kind>
             <string>///Inicializar el menu
 menuIndex = 0;
-isPlayerOnBattle = true;
 cLine1 = instance_create(0, 0, obj_bbline);
 cLine2 = instance_create(0, 0, obj_bbline);
 cLine3 = instance_create(0, 0, obj_bbline);
 cLine4 = instance_create(0, 0, obj_bbline);
 sMenu = false;
 tiempo = 0;
+tiempoB = 0;
+pMTP = true;
+isPlayerOnBattle = true;
 </string>
           </argument>
         </arguments>
@@ -56,8 +58,7 @@ tiempo = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Actualizar el menu
-if (obj_teclado.seleccionar_r) isPlayerOnBattle = !isPlayerOnBattle;
+            <string>if (obj_teclado.seleccionar_r) isPlayerOnBattle = !isPlayerOnBattle;
 
 if(isPlayerOnBattle) if (menuIndex != 0) menuIndex = 0;
 
@@ -80,6 +81,8 @@ if(!isPlayerOnBattle)
             audio_play_sound(snd_menu_select, 0, false);
         }
     }
+    
+    if (!pMTP) pMTP = true;
     
     if (sMenu)
     {
@@ -134,16 +137,30 @@ if(!isPlayerOnBattle)
         }
     }
 } else {
-    if (sMenu) sMenu = false;
-    if (tiempo &gt; 0) tiempo = 0;
-    if (!obj_jugador.canMove) obj_jugador.canMove = true;
-    if (obj_fight_button.sprite_index != spr_fight_button) obj_fight_button.sprite_index = spr_fight_button;
-    if (obj_act_button.sprite_index != spr_act_button) obj_act_button.sprite_index = spr_act_button;
-    if (obj_item_button.sprite_index != spr_item_button) obj_item_button.sprite_index = spr_item_button;
-    if (obj_mercy_button.sprite_index != spr_mercy_button) obj_mercy_button.sprite_index = spr_mercy_button;
+    if (pMTP)
+    {
+        if (sMenu) sMenu = false;
+        if (tiempo &gt; 0) tiempo = 0;
+        if (obj_fight_button.sprite_index != spr_fight_button) obj_fight_button.sprite_index = spr_fight_button;
+        if (obj_act_button.sprite_index != spr_act_button) obj_act_button.sprite_index = spr_act_button;
+        if (obj_item_button.sprite_index != spr_item_button) obj_item_button.sprite_index = spr_item_button;
+        if (obj_mercy_button.sprite_index != spr_mercy_button) obj_mercy_button.sprite_index = spr_mercy_button;
+        
+        if (tiempoB &lt; 11)
+        {
+            obj_jugador.x = mover_linealmente(tiempoB, obj_jugador.x, 311 - obj_jugador.x, 10);
+            obj_jugador.y = mover_linealmente(tiempoB, obj_jugador.y, 290 - obj_jugador.y, 10);
+            tiempoB = tiempoB + 1;
+        } else {
+            pMTP = false;
+            tiempoB = 0;
+        }
+    } else {
+        if (!obj_jugador.canMove) obj_jugador.canMove = true;
+    }
 }
 
-create_bbox(320, 240, 198, 41, cLine1, cLine2, cLine3, cLine4);
+create_bbox(227, 210, 170, 170, cLine1, cLine2, cLine3, cLine4);
 </string>
           </argument>
         </arguments>

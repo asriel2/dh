@@ -1,4 +1,5 @@
-/// mover_linealmente(tiempo, ipos, velocidad, duracion);
+/// mover_linealmente(tiempo, ipos, change, duracion);
+/// @arg tiempo el tiempo joto
 
 var t = argument0;
 var b = argument1;
