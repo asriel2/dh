@@ -26,16 +26,40 @@
           <argument>
             <kind>1</kind>
             <string>///Inicializar el menu
+
 menuIndex = 0;
+
 cLine1 = instance_create(0, 0, obj_bbline);
 cLine2 = instance_create(0, 0, obj_bbline);
 cLine3 = instance_create(0, 0, obj_bbline);
 cLine4 = instance_create(0, 0, obj_bbline);
+
 sMenu = false;
+
 tiempo = 0;
 tiempoB = 0;
+
 pMTP = true;
+
 isPlayerOnBattle = true;
+
+//Dialog variables
+dbbx = 227;
+dbby = 210;
+dbbw = 170;
+dbbh = 170;
+
+//Default mode (default battle box)
+bbx = dbbx;
+bby = dbby;
+bbw = dbbw;
+bbh = dbbh;
+
+//Dialog mode
+dialog_bbx = obj_fight_button.x + 5 - 55;
+dialog_bbw = (obj_mercy_button.x + 55) - dialog_bbx; 
+dialog_bby = dbby;
+dialog_bbh = dbbh;
 </string>
           </argument>
         </arguments>
@@ -70,8 +94,14 @@ if(!isPlayerOnBattle)
     {
         obj_jugador.x = mover_linealmente(tiempo, obj_jugador.x, ((obj_fight_button.x - 38) - obj_jugador.x), 10);
         obj_jugador.y = mover_linealmente(tiempo, obj_jugador.y, (obj_fight_button.y - obj_jugador.y), 10);
+        bbx = mover_linealmente(tiempo, bbx, dialog_bbx - bbx, 10);
+        bby = mover_linealmente(tiempo, bby, dialog_bby - bby, 10);
+        bbw = mover_linealmente(tiempo, bbw, dialog_bbw - bbw, 10);
+        bbh = mover_linealmente(tiempo, bbh, dialog_bbh - bbh, 10);
+        create_bbox(bbx, bby, bbw, bbh, cLine1, cLine2, cLine3, cLine4);
         tiempo = tiempo + 1;
     } else {
+        create_bbox(bbx, bby, bbw, bbh, cLine1, cLine2, cLine3, cLine4);
         if (!sMenu) 
         {
             sMenu = true;
@@ -81,6 +111,8 @@ if(!isPlayerOnBattle)
             audio_play_sound(snd_menu_select, 0, false);
         }
     }
+    
+    create_bbox(bbx, bby, bbw, bbh, cLine1, cLine2, cLine3, cLine4);
     
     if (!pMTP) pMTP = true;
     
@@ -150,17 +182,22 @@ if(!isPlayerOnBattle)
         {
             obj_jugador.x = mover_linealmente(tiempoB, obj_jugador.x, 311 - obj_jugador.x, 10);
             obj_jugador.y = mover_linealmente(tiempoB, obj_jugador.y, 290 - obj_jugador.y, 10);
+            bbx = mover_linealmente(tiempoB, bbx, dbbx - bbx, 10);
+            bby = mover_linealmente(tiempoB, bby, dbby - bby, 10);
+            bbw = mover_linealmente(tiempoB, bbw, dbbw - bbw, 10);
+            bbh = mover_linealmente(tiempoB, bbh, dbbh - bbh, 10);
+            create_bbox(bbx, bby, bbw, bbh, cLine1, cLine2, cLine3, cLine4);
             tiempoB = tiempoB + 1;
         } else {
             pMTP = false;
             tiempoB = 0;
+            create_bbox(bbx, bby, bbw, bbh, cLine1, cLine2, cLine3, cLine4);
         }
     } else {
+        create_bbox(bbx, bby, bbw, bbh, cLine1, cLine2, cLine3, cLine4);
         if (!obj_jugador.canMove) obj_jugador.canMove = true;
     }
 }
-
-create_bbox(227, 210, 170, 170, cLine1, cLine2, cLine3, cLine4);
 </string>
           </argument>
         </arguments>
