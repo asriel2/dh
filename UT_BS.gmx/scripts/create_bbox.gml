@@ -1,12 +1,4 @@
-/// create_bbox(x, y, ancho, alto, obj1, obj2, obj3, obj4)
-/// @arg x
-/// @arg y
-/// @arg ancho
-/// @arg alto
-/// @arg obj1
-/// @arg obj2
-/// @arg obj3
-/// @arg obj4
+///create_bbox(x, y, ancho, alto, obj1, obj2, obj3, obj4)
 
 var px = argument0;
 var py = argument1;

@@ -25,10 +25,22 @@
   <scripts name="scripts">
     <scripts name="utilidades">
       <script>scripts\scr_teclado.gml</script>
-      <script>scripts\create_bbox.gml</script>
       <script>scripts\mover_linealmente.gml</script>
       <script>scripts\mover_einout.gml</script>
       <script>scripts\mover_ein.gml</script>
+    </scripts>
+    <scripts name="BBox">
+      <script>scripts\create_bbox.gml</script>
+    </scripts>
+    <scripts name="Dialog">
+      <script>scripts\setDialogPos.gml</script>
+      <script>scripts\setDialogMaxWidth.gml</script>
+      <script>scripts\addDialogLine.gml</script>
+      <script>scripts\triggerDialog.gml</script>
+      <script>scripts\resetDialog.gml</script>
+      <script>scripts\setDialogFont.gml</script>
+      <script>scripts\setDialogLettersSeparation.gml</script>
+      <script>scripts\setDialogLetterSound.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -49,6 +61,7 @@
     <object>objects\obj_button</object>
     <object>objects\obj_menu</object>
     <object>objects\obj_bbline</object>
+    <object>objects\obj_Dialog</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\Room_Name</room>
