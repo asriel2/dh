@@ -1,22 +1,23 @@
 ///resetDialog()
-with (obj_Dialog)
+with (obj_dController) 
 {
-    for(var i; i < tLine; ++i)
-    {
-        texto[i, 0] = -1;
-        texto[i, 1] = "";
-    }
-    lCount = 0;
-    cLetter = 0;
-    cLine = 0;
-    tLine = 0;
+    event_inherited();
+    cDialog = noone;
+    dIndex = 0;
+    xOffset = -32;
+    yOffset = -40;
+    tSpd = 0.5;
+    tWidth = 100;
+    tMargin = 10;
     xPos = 0;
     yPos = 0;
-    lSound = -1;
-    Font = noone;
-    leffect = -1;
-    dCount = 0;
-    fSepv = 0;
-    Ancho = 0;
-    tDisplay = false;
+    tDialogs = 0;
+    
+    for (var i = 0; i < 100; i = i + 1)
+    {
+        dText[i] = "";
+        dColor[i] = c_white;
+        dSound[i] = snd_talk_default;
+        dFont[i] = ut_ebits_font;
+    }
 }

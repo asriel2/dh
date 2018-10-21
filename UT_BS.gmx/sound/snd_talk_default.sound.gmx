@@ -2,7 +2,7 @@
 <sound>
   <kind>0</kind>
   <extension>.wav</extension>
-  <origname>C:\Users\Lisandro\Documents\GitHub\ut_fighttest\UT_BS.gmx\\sound\audio\snd_menu_select.wav</origname>
+  <origname>sound\audio\snd_talk_default.wav</origname>
   <effects>0</effects>
   <volume>
     <volume>1</volume>
@@ -21,8 +21,9 @@
     <bitDepth>16</bitDepth>
   </bitDepths>
   <preload>-1</preload>
-  <data>snd_menu_select.wav</data>
+  <data>snd_talk_default.wav</data>
   <compressed>0</compressed>
   <streamed>0</streamed>
   <uncompressOnLoad>0</uncompressOnLoad>
+  <audioGroup>0</audioGroup>
 </sound>

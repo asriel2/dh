@@ -19,7 +19,7 @@ deseleccionar_p = keyboard_check_pressed(vk_shift) || keyboard_check_pressed(ord
 menu_p = keyboard_check_pressed(ord('C'));
 seleccionar_r = keyboard_check_released(vk_enter) || keyboard_check_released(ord('Z'));
 deseleccionar_r = keyboard_check_released(vk_shift) || keyboard_check_released(ord('X'));
-menu_R = keyboard_check_released(ord('C'));
+menu_r = keyboard_check_released(ord('C'));
 
 x_axis = (derecha - izquierda);
 y_axis = (abajo - arriba);

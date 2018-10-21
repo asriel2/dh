@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>self</parentName>
+  <parentName>obj_DS</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,24 +25,45 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Crear el dialogo
-dText = noone;
-dColor = noone;
-dSound = noone;
-dFont = noone;
-tVisible = "";
-tPage = 0;
-tCount = 0;
-tSpd = .5;
-tWidth = 80;
-tMargin = 0; 
-aLength = 0;
+            <string>///Inicializar controllador de dialogos
+event_inherited();
+cDialog = noone;
+dIndex = 0;
+xOffset = -32;
+yOffset = -40;
+tSpd = 0.5;
+tWidth = 100;
+tMargin = 10;
+xPos = 0;
+yPos = 0;
+tDialogs = 0;
+
+for (var i = 0; i &lt; 100; i = i + 1)
+{
+    dText[i] = "";
+    dColor[i] = c_white;
+    dSound[i] = snd_talk_default;
+    dFont[i] = ut_ebits_font;
+}
+
+//test the functions
+setDialogPos(50, 50);
+setDialogWidth(400);
+setDialogColor(c_white, 0);
+setDialogColor(c_white, 1);
+setDialogColor(c_white, 2);
+setDialogColor(c_red, 3);
+addDialogLine("* Sientes una extrana sensacion en la atmosfera...");
+addDialogLine("* Intentas llamar por ayuda...");
+addDialogLine("* Pero nadie vino...");
+addDialogLine("* =)");
+setDialogMargin(0);
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="64">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -59,37 +80,7 @@ aLength = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Dibujar el dialogo
-if (dText[tPage] != "")
-{   
-    draw_set_color(dColor[tPage]);
-    draw_set_font(dFont[tPage]);
-    
-    if (string_char_at(dText[tPage], tCount) == " ")
-    {
-        lSpace = tCount;
-    }
-    
-    var tWords = string_copy_words(dText[tPage], 1, tCount)
-    
-    if (string_width(tWords) &gt;= tWidth - (tMargin * 2))
-    {
-        dText[tPage] = string_delete(dText[tPage], lSpace, 1);
-        dText[tPage] = string_insert("#", dText[tPage], lSpace);
-    }
-    
-    if (tCount &lt; string_length(dText[tPage]))
-    {
-        audio_play_sound(dSound[tPage], 0, false);
-    }
-    
-    tVisible = string_copy(dText[tPage], 0, tCount);
-    
-    var xx = x;
-    var yy = y;
-    draw_text(xx + tMargin, yy + tMargin, tVisible);
-    tCount += tSpd;
-}
+            <string>if (obj_teclado.seleccionar_r) showDialog();
 </string>
           </argument>
         </arguments>
@@ -107,5 +98,8 @@ if (dText[tPage] != "")
   <PhysicsObjectFriction>0.200000002980232</PhysicsObjectFriction>
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
-  <PhysicsShapePoints/>
+  <PhysicsShapePoints>
+    <point>0,0</point>
+    <point>16,16</point>
+  </PhysicsShapePoints>
 </object>

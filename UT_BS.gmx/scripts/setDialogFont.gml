@@ -1,2 +1,5 @@
-///setDialogFont(font)
-with (obj_Dialog) Font = argument0;
+///setDialogFont(font, index)
+with (obj_dController) 
+{
+    dFont[argument1] = argument0;
+}

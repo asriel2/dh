@@ -1,6 +1,6 @@
 ///setDialogPos(x, y)
-with(obj_Dialog)
+with(obj_dController)
 {
-    obj_Dialog.xPos = argument0;
-    obj_Dialog.yPos = argument1;
+    obj_dController.xPos = argument0;
+    obj_dController.yPos = argument1;
 }

@@ -1,7 +1,6 @@
-///addDialogLine(spr, txt)
-with (obj_Dialog)
+///addDialogLine(str)
+with (obj_dController)
 {
-    texto[tLines, 0] = spr;
-    texto[tLines, 1] = txt;
-    tLines = tLines + 1;
+    dText[tDialogs] = argument0;
+    tDialogs++;
 }
