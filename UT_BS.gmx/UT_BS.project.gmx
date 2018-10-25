@@ -48,6 +48,9 @@
       <script>scripts\setDialogSpeed.gml</script>
       <script>scripts\addDialogLine.gml</script>
       <script>scripts\setDialogFont.gml</script>
+      <script>scripts\setDialogLineColor.gml</script>
+      <script>scripts\setDialogLineSound.gml</script>
+      <script>scripts\setDialogMode.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">

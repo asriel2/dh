@@ -1,5 +1,8 @@
-///setDialogColor(colour, index)
+///setDialogColor(colour)
 with (obj_dController)
 {
-    dColor[argument1] = argument0;
+    for (var i = 0; i < tDialogs; i++)
+    {
+        dColor[i] = argument0;
+    }
 }

@@ -1,5 +1,5 @@
-///setDialogSound(sound, index)
+///setDialogSound(sound)
 with(obj_dController) 
 {
-    dSound[argument1] = argument0;
+    for (var i = 0; i < tDialogs; ++i)  dSound[i] = argument0;
 }

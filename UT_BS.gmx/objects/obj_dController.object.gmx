@@ -37,6 +37,7 @@ tMargin = 10;
 xPos = 0;
 yPos = 0;
 tDialogs = 0;
+dMode = 0;
 
 for (var i = 0; i &lt; 100; i = i + 1)
 {
@@ -49,10 +50,8 @@ for (var i = 0; i &lt; 100; i = i + 1)
 //test the functions
 setDialogPos(50, 50);
 setDialogWidth(400);
-setDialogColor(c_white, 0);
-setDialogColor(c_white, 1);
-setDialogColor(c_white, 2);
-setDialogColor(c_red, 3);
+setDialogColor(c_white);
+setDialogLineColor(c_red, 3);
 addDialogLine("* Sientes una extrana sensacion en la atmosfera...");
 addDialogLine("* Intentas llamar por ayuda...");
 addDialogLine("* Pero nadie vino...");
