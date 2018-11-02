@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>self</parentName>
+  <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -37,6 +37,7 @@ tSpd = .5;
 tWidth = 80;
 tMargin = 0; 
 aLength = 0;
+dMode = 0;
 </string>
           </argument>
         </arguments>
@@ -62,7 +63,21 @@ aLength = 0;
             <string>///Dibujar el dialogo
 if (dText[tPage] != "")
 {   
-    draw_set_color(dColor[tPage]);
+    /*
+    dMode references:
+    0 - text only without dialog box
+    1 - text with dialog box
+    2 - text with dialog box and sprite
+    3 - text with bubble dialog box
+    case 3 = a new variable called bubble id is called to identify the bubble sprite that the user want to show.
+    It can variate along time, so it will be an array.
+    */
+    
+    if (dMode &lt; 3)
+    {
+        draw_set_color(dColor[tPage]);
+    }
+    
     draw_set_font(dFont[tPage]);
     
     if (string_char_at(dText[tPage], tCount) == " ")

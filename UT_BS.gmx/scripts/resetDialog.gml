@@ -12,6 +12,7 @@ with (obj_dController)
     xPos = 0;
     yPos = 0;
     tDialogs = 0;
+    dMode = 0;
     
     for (var i = 0; i < 100; i = i + 1)
     {

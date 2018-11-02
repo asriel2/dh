@@ -5,52 +5,100 @@
   </Configs>
   <NewExtensions/>
   <sounds name="sound">
-    <sound>sound\snd_menu_select</sound>
-    <sound>sound\snd_talk_default</sound>
+    <sounds name="Menu">
+      <sound>sound\snd_menu_select</sound>
+    </sounds>
+    <sounds name="Dialog">
+      <sound>sound\snd_talk_default</sound>
+    </sounds>
   </sounds>
   <sprites name="sprites">
-    <sprite>sprites\spr_corazon</sprite>
-    <sprite>sprites\spr_fight_button</sprite>
-    <sprite>sprites\spr_mercy_button</sprite>
-    <sprite>sprites\spr_act_button</sprite>
-    <sprite>sprites\spr_item_button</sprite>
-    <sprite>sprites\spr_sans</sprite>
-    <sprite>sprites\spr_fight_button_s</sprite>
-    <sprite>sprites\spr_mercy_button_s</sprite>
-    <sprite>sprites\spr_act_button_s</sprite>
-    <sprite>sprites\spr_item_button_s</sprite>
-    <sprite>sprites\spr_bbline</sprite>
+    <sprites name="Escenario">
+      <sprites name="Menu">
+        <sprites name="Botones">
+          <sprites name="Seleccionados">
+            <sprite>sprites\spr_item_button_s</sprite>
+            <sprite>sprites\spr_act_button_s</sprite>
+            <sprite>sprites\spr_mercy_button_s</sprite>
+            <sprite>sprites\spr_fight_button_s</sprite>
+          </sprites>
+          <sprites name="Normales">
+            <sprite>sprites\spr_item_button</sprite>
+            <sprite>sprites\spr_act_button</sprite>
+            <sprite>sprites\spr_mercy_button</sprite>
+            <sprite>sprites\spr_fight_button</sprite>
+          </sprites>
+        </sprites>
+      </sprites>
+      <sprites name="Enemigos">
+        <sprite>sprites\spr_sans</sprite>
+      </sprites>
+      <sprites name="Global">
+        <sprite>sprites\spr_bbline</sprite>
+      </sprites>
+      <sprites name="Dialogos">
+        <sprites name="dialog_mode3">
+          <sprite>sprites\spr_dialogmode3_1</sprite>
+          <sprite>sprites\spr_dialogmode3_2</sprite>
+          <sprite>sprites\spr_dialogmode3_3</sprite>
+          <sprite>sprites\spr_dialogmode3_5</sprite>
+          <sprite>sprites\spr_dialogmode3_4</sprite>
+          <sprite>sprites\spr_dialogmode3_6</sprite>
+          <sprite>sprites\spr_dialogmode3_7</sprite>
+          <sprite>sprites\spr_dialogmode3_8</sprite>
+          <sprite>sprites\spr_dialogmode3_9</sprite>
+          <sprite>sprites\spr_dialogmode3_10</sprite>
+          <sprite>sprites\spr_dialogmode3_12</sprite>
+          <sprite>sprites\spr_dialogmode3_11</sprite>
+        </sprites>
+      </sprites>
+    </sprites>
+    <sprites name="Jugador">
+      <sprite>sprites\spr_corazon</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="Utilidades">
-      <script>scripts\scr_teclado.gml</script>
-      <script>scripts\mover_linealmente.gml</script>
-      <script>scripts\mover_einout.gml</script>
-      <script>scripts\mover_ein.gml</script>
-      <script>scripts\string_copy_words.gml</script>
-      <script>scripts\destroy_object.gml</script>
+      <scripts name="Objetos">
+        <script>scripts\destroy_object.gml</script>
+      </scripts>
+      <scripts name="Movimientos">
+        <script>scripts\mover_ein.gml</script>
+        <script>scripts\mover_einout.gml</script>
+        <script>scripts\mover_linealmente.gml</script>
+      </scripts>
+      <scripts name="Teclado">
+        <script>scripts\scr_teclado.gml</script>
+      </scripts>
+      <scripts name="Strings">
+        <script>scripts\string_copy_words.gml</script>
+      </scripts>
     </scripts>
     <scripts name="BBox">
       <script>scripts\create_bbox.gml</script>
     </scripts>
     <scripts name="Dialog">
-      <script>scripts\setDialogPos.gml</script>
-      <script>scripts\setDialogWidth.gml</script>
-      <script>scripts\setDialogLineFont.gml</script>
-      <script>scripts\setDialogSound.gml</script>
-      <script>scripts\setDialogColor.gml</script>
-      <script>scripts\showDialog.gml</script>
-      <script>scripts\resetDialog.gml</script>
-      <script>scripts\setDialogLine.gml</script>
-      <script>scripts\setDialogMargin.gml</script>
-      <script>scripts\setDialogSpeed.gml</script>
-      <script>scripts\addDialogLine.gml</script>
-      <script>scripts\setDialogFont.gml</script>
-      <script>scripts\setDialogLineColor.gml</script>
-      <script>scripts\setDialogLineSound.gml</script>
-      <script>scripts\setDialogMode.gml</script>
+      <scripts name="Sets">
+        <script>scripts\setDialogMode.gml</script>
+        <script>scripts\setDialogLineSound.gml</script>
+        <script>scripts\setDialogLineColor.gml</script>
+        <script>scripts\setDialogFont.gml</script>
+        <script>scripts\setDialogSpeed.gml</script>
+        <script>scripts\setDialogMargin.gml</script>
+        <script>scripts\setDialogLine.gml</script>
+        <script>scripts\setDialogColor.gml</script>
+        <script>scripts\setDialogSound.gml</script>
+        <script>scripts\setDialogLineFont.gml</script>
+        <script>scripts\setDialogWidth.gml</script>
+        <script>scripts\setDialogPos.gml</script>
+      </scripts>
+      <scripts name="Misc">
+        <script>scripts\addDialogLine.gml</script>
+        <script>scripts\resetDialog.gml</script>
+        <script>scripts\showDialog.gml</script>
+      </scripts>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -59,21 +107,36 @@
     <font>fonts\ut_hachico_font2</font>
   </fonts>
   <objects name="objects">
-    <object>objects\obj_jugador</object>
-    <object>objects\obj_teclado</object>
-    <object>objects\obj_solido</object>
-    <object>objects\obj_r1text</object>
-    <object>objects\obj_fight_button</object>
-    <object>objects\obj_act_button</object>
-    <object>objects\obj_item_button</object>
-    <object>objects\obj_mercy_button</object>
-    <object>objects\obj_sans</object>
-    <object>objects\obj_button</object>
-    <object>objects\obj_menu</object>
-    <object>objects\obj_bbline</object>
-    <object>objects\obj_Dialog</object>
-    <object>objects\obj_DS</object>
-    <object>objects\obj_dController</object>
+    <objects name="Menu">
+      <objects name="Global">
+        <object>objects\obj_bbline</object>
+      </objects>
+      <objects name="Enemigos">
+        <object>objects\obj_sans</object>
+      </objects>
+      <objects name="Botones">
+        <object>objects\obj_mercy_button</object>
+        <object>objects\obj_item_button</object>
+        <object>objects\obj_act_button</object>
+        <object>objects\obj_fight_button</object>
+      </objects>
+      <objects name="GUI">
+        <object>objects\obj_menu</object>
+        <object>objects\obj_r1text</object>
+      </objects>
+      <objects name="Dialogo">
+        <object>objects\obj_dController</object>
+        <object>objects\obj_DS</object>
+        <object>objects\obj_Dialog</object>
+      </objects>
+    </objects>
+    <objects name="Global">
+      <object>objects\obj_solido</object>
+      <object>objects\obj_teclado</object>
+    </objects>
+    <objects name="Jugador">
+      <object>objects\obj_jugador</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\Room_Name</room>
