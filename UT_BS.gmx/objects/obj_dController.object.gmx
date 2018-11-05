@@ -31,8 +31,7 @@ cDialog = noone;
 dIndex = 0;
 xOffset = -32;
 yOffset = -40;
-tSpd = 0.5;
-tWidth = 100;
+dWidth = 80;
 tMargin = 10;
 xPos = 0;
 yPos = 0;
@@ -42,7 +41,9 @@ tDialogs = 0;
 * 1 - text with dialog box
 * 2 - text with dialog box n sprite
 * 3 - text with bubble dbox*/
+dHeight = 40;
 dMode = 0;
+dSprite = spr_dialogmode3_1;
 
 for (var i = 0; i &lt; 100; i = i + 1)
 {
@@ -50,6 +51,7 @@ for (var i = 0; i &lt; 100; i = i + 1)
     dColor[i] = c_white;
     dSound[i] = snd_talk_default;
     dFont[i] = ut_ebits_font;
+    dFace[i] = noone;
 }
 
 //test the functions
@@ -57,11 +59,13 @@ setDialogPos(50, 50);
 setDialogWidth(400);
 setDialogColor(c_white);
 setDialogLineColor(c_red, 3);
-addDialogLine("* Sientes una extrana sensacion en la atmosfera...");
+addDialogLine("* Sientes {998033}una# {FFFFFF}extrana sensacion# en la atmosfera...");
 addDialogLine("* Intentas llamar por ayuda...");
 addDialogLine("* Pero nadie vino...");
 addDialogLine("* =)");
-setDialogMargin(0);
+setDialogMargin(10);
+setDialogMode(1);
+setDialogBox(300, 150);
 </string>
           </argument>
         </arguments>
@@ -84,7 +88,36 @@ setDialogMargin(0);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (obj_teclado.deseleccionar_r) showDialog();
+            <string>if (obj_teclado.deseleccionar_r)
+{
+    showDialog();
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (obj_teclado.deseleccionar_r)
+{
+    //formatText(250, 250, "* Sientes {998033}una{FFFFFF} extrana sensacion en la atmosfera...");
+}
 </string>
           </argument>
         </arguments>

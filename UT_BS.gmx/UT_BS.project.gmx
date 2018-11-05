@@ -75,6 +75,13 @@
       <scripts name="Strings">
         <script>scripts\string_copy_words.gml</script>
       </scripts>
+      <scripts name="Conversion">
+        <script>scripts\dec_to_hex.gml</script>
+        <script>scripts\hex_to_dec.gml</script>
+      </scripts>
+      <scripts name="Draw">
+        <script>scripts\formatText.gml</script>
+      </scripts>
     </scripts>
     <scripts name="BBox">
       <script>scripts\create_bbox.gml</script>
@@ -82,6 +89,7 @@
     <scripts name="Dialog">
       <scripts name="Sets">
         <script>scripts\setDialogMode.gml</script>
+        <script>scripts\setDialogBox.gml</script>
         <script>scripts\setDialogLineSound.gml</script>
         <script>scripts\setDialogLineColor.gml</script>
         <script>scripts\setDialogFont.gml</script>

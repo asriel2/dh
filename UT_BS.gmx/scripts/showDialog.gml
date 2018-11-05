@@ -9,14 +9,14 @@ with (obj_dController)
         cDialog.dSound = dSound;
         cDialog.dFont = dFont;
         cDialog.tMargin = tMargin;
-        cDialog.tWidth = tWidth;
-        cDialog.tSpd = tSpd;
+        cDialog.dWidth = dWidth;
         cDialog.dMode = dMode;
+        cDialog.dFace = dFace;
+        cDialog.dHeight = dHeight;
     } else {
         var pSize = string_length(dText[cDialog.tPage]);
         if (string_length(cDialog.tVisible) < pSize)
         {
-            cDialog.lSpace = pSize + 1;
             cDialog.tCount = pSize + 1;
         } else {
             cDialog.tPage++;

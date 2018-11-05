@@ -30,14 +30,36 @@ dText = noone;
 dColor = noone;
 dSound = noone;
 dFont = noone;
+dFace = noone;
+omittedChars = noone;
 tVisible = "";
 tPage = 0;
 tCount = 0;
-tSpd = .5;
-tWidth = 80;
 tMargin = 0; 
 aLength = 0;
 dMode = 0;
+dWidth = 80;
+dHeight = 40;
+initial_x = x;
+initial_y = x;
+cString = dText[tPage];
+defhsep = 1;
+defvsep = 1;
+cLen = string_width("x");
+cAlt = string_height("x");
+cColor = c_white;
+tDisplayL = 0;
+tDisplayE = 0;
+
+for (var i = 1; i &lt; string_length(cString) + 1; i++)
+{
+    omittedChars[i] = false;
+}
+
+if (dMode == 1)
+{
+    tMargin = tMargin + 6;
+}
 </string>
           </argument>
         </arguments>
@@ -63,47 +85,60 @@ dMode = 0;
             <string>///Dibujar el dialogo
 if (dText[tPage] != "")
 {   
-    /*
-    dMode references:
-    0 - text only without dialog box
-    1 - text with dialog box
-    2 - text with dialog box and sprite
-    3 - text with bubble dialog box
-    case 3 = a new variable called bubble id is called to identify the bubble sprite that the user want to show.
-    It can variate along time, so it will be an array.
-    */
-    
-    if (dMode &lt; 3)
-    {
-        draw_set_color(dColor[tPage]);
-    }
-    
     draw_set_font(dFont[tPage]);
+    cString = dText[tPage];
     
-    if (string_char_at(dText[tPage], tCount) == " ")
-    {
-        lSpace = tCount;
-    }
-    
-    var tWords = string_copy_words(dText[tPage], 1, tCount)
-    
-    if (string_width(tWords) &gt;= tWidth - (tMargin * 2))
-    {
-        dText[tPage] = string_delete(dText[tPage], lSpace, 1);
-        dText[tPage] = string_insert("#", dText[tPage], lSpace);
-    }
+    spaced = false;
     
     if (tCount &lt; string_length(dText[tPage]))
     {
         audio_play_sound(dSound[tPage], 0, false);
     }
     
+    if (dMode == 1)
+    {
+        draw_rectangle_color(x, y, dWidth, dHeight, c_white, c_white, c_white, c_white, false);
+        draw_rectangle_color(x + 6, y + 6, dWidth - 6, dHeight - 6, c_black, c_black, c_black, c_black, false);
+    }
     tVisible = string_copy(dText[tPage], 0, tCount);
     
     var xx = x;
     var yy = y;
-    draw_text(xx + tMargin, yy + tMargin, tVisible);
-    tCount += tSpd;
+    
+    cChar = string_char_at(cString, tCount);
+        
+    if (cChar == '#')
+    {
+        tDisplayE++;
+        tCount = tCount + 1; 
+        cChar = string_char_at(cString, tCount);
+    }
+        
+    if (cChar == '{') 
+    {
+        if ((string_char_at(cString, tCount + 7)) == '}')
+        {   
+            var rojo = string_char_at(cString, tCount + 1) + string_char_at(cString, tCount + 2);
+            var verde = string_char_at(cString, tCount + 3) + string_char_at(cString, tCount + 4);
+            var azul = string_char_at(cString, tCount + 5) + string_char_at(cString, tCount + 6);
+                
+            cColor = make_color_rgb(hex_to_dec(rojo), hex_to_dec(verde), hex_to_dec(azul));        
+                    
+            tCount = tCount + 7;
+            spaced = true;
+            
+            for (var j = tCount; j &lt; tCount + 8; j++) omittedChars[j] = true;
+        }
+    }
+        
+    if (!omittedChars[tCount])
+    {
+        tDisplayL++;
+        draw_set_color(cColor);
+        draw_text(initial_x + ((cLen + defhsep) * tDisplayL), initial_y + ((cAlt + defvsep) * tDisplayE), cChar);
+    }
+    
+    if (!spaced) tCount = tCount + .5;
 }
 </string>
           </argument>

@@ -6,8 +6,7 @@ with (obj_dController)
     dIndex = 0;
     xOffset = -32;
     yOffset = -40;
-    tSpd = 0.5;
-    tWidth = 100;
+    dWidth = 80;
     tMargin = 10;
     xPos = 0;
     yPos = 0;
@@ -20,5 +19,6 @@ with (obj_dController)
         dColor[i] = c_white;
         dSound[i] = snd_talk_default;
         dFont[i] = ut_ebits_font;
+        dFace[i] = noone;
     }
 }
