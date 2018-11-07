@@ -91,12 +91,10 @@
         <script>scripts\setDialogMode.gml</script>
         <script>scripts\setDialogBox.gml</script>
         <script>scripts\setDialogLineSound.gml</script>
-        <script>scripts\setDialogLineColor.gml</script>
         <script>scripts\setDialogFont.gml</script>
         <script>scripts\setDialogSpeed.gml</script>
         <script>scripts\setDialogMargin.gml</script>
         <script>scripts\setDialogLine.gml</script>
-        <script>scripts\setDialogColor.gml</script>
         <script>scripts\setDialogSound.gml</script>
         <script>scripts\setDialogLineFont.gml</script>
         <script>scripts\setDialogWidth.gml</script>

@@ -5,7 +5,6 @@ with (obj_dController)
     {
         cDialog = instance_create(xPos + xOffset, yPos + yOffset, obj_Dialog);
         cDialog.dText = dText;
-        cDialog.dColor = dColor;
         cDialog.dSound = dSound;
         cDialog.dFont = dFont;
         cDialog.tMargin = tMargin;

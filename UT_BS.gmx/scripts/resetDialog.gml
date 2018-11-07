@@ -16,7 +16,6 @@ with (obj_dController)
     for (var i = 0; i < 100; i = i + 1)
     {
         dText[i] = "";
-        dColor[i] = c_white;
         dSound[i] = snd_talk_default;
         dFont[i] = ut_ebits_font;
         dFace[i] = noone;

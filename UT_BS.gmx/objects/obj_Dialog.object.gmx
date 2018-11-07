@@ -27,11 +27,9 @@
             <kind>1</kind>
             <string>///Crear el dialogo
 dText = noone;
-dColor = noone;
 dSound = noone;
 dFont = noone;
 dFace = noone;
-omittedChars = noone;
 tVisible = "";
 tPage = 0;
 tCount = 0;
@@ -43,15 +41,6 @@ dHeight = 40;
 cString = dText[tPage];
 lhsep = 1;
 lvsep = 1;
-cLen = string_width("x");
-cAlt = string_height("x");
-cColor = c_white;
-rawIndex = 0;
-
-for (var i = 1; i != string_length(cString) + 1; ++i)
-{
-    omittedChars[i] = false;
-}
 
 if (dMode == 1)
 {

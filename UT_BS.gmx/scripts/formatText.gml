@@ -37,8 +37,6 @@ for (var i = 1; i != string_length(cString) + 1; ++i)
             var azul = string_char_at(cString, i + 5) + string_char_at(cString, i + 6);
             
             cColor = make_color_rgb(hex_to_dec(rojo), hex_to_dec(verde), hex_to_dec(azul));
-                        
-            //show_message(string_copy(cString, 0, i + 6));
             
             for (var j = i + 1; j != i + 7; ++j) 
             {
@@ -61,12 +59,7 @@ for (var i = 1; i != string_length(cString) + 1; ++i)
         letterIndex = letterIndex + 1;
         
         draw_set_color(cColor);
-        
-        /*if (cChar == '#')
-        {
-            rawIndex = rawIndex + 1;
-            letterIndex = 0;
-        }*/
+
         draw_text(initial_x + ((cLen + lhsep) * letterIndex), initial_y + ((cAlt + lvsep) * rawIndex), cChar);
     }
 }
