@@ -40,18 +40,15 @@ aLength = 0;
 dMode = 0;
 dWidth = 80;
 dHeight = 40;
-initial_x = x;
-initial_y = x;
 cString = dText[tPage];
-defhsep = 1;
-defvsep = 1;
+lhsep = 1;
+lvsep = 1;
 cLen = string_width("x");
 cAlt = string_height("x");
 cColor = c_white;
-tDisplayL = 0;
-tDisplayE = 0;
+rawIndex = 0;
 
-for (var i = 1; i &lt; string_length(cString) + 1; i++)
+for (var i = 1; i != string_length(cString) + 1; ++i)
 {
     omittedChars[i] = false;
 }
@@ -88,8 +85,6 @@ if (dText[tPage] != "")
     draw_set_font(dFont[tPage]);
     cString = dText[tPage];
     
-    spaced = false;
-    
     if (tCount &lt; string_length(dText[tPage]))
     {
         audio_play_sound(dSound[tPage], 0, false);
@@ -100,45 +95,21 @@ if (dText[tPage] != "")
         draw_rectangle_color(x, y, dWidth, dHeight, c_white, c_white, c_white, c_white, false);
         draw_rectangle_color(x + 6, y + 6, dWidth - 6, dHeight - 6, c_black, c_black, c_black, c_black, false);
     }
-    tVisible = string_copy(dText[tPage], 0, tCount);
     
     var xx = x;
     var yy = y;
     
-    cChar = string_char_at(cString, tCount);
-        
-    if (cChar == '#')
-    {
-        tDisplayE++;
-        tCount = tCount + 1; 
-        cChar = string_char_at(cString, tCount);
-    }
-        
-    if (cChar == '{') 
-    {
-        if ((string_char_at(cString, tCount + 7)) == '}')
-        {   
-            var rojo = string_char_at(cString, tCount + 1) + string_char_at(cString, tCount + 2);
-            var verde = string_char_at(cString, tCount + 3) + string_char_at(cString, tCount + 4);
-            var azul = string_char_at(cString, tCount + 5) + string_char_at(cString, tCount + 6);
-                
-            cColor = make_color_rgb(hex_to_dec(rojo), hex_to_dec(verde), hex_to_dec(azul));        
-                    
-            tCount = tCount + 7;
-            spaced = true;
-            
-            for (var j = tCount; j &lt; tCount + 8; j++) omittedChars[j] = true;
-        }
-    }
-        
-    if (!omittedChars[tCount])
-    {
-        tDisplayL++;
-        draw_set_color(cColor);
-        draw_text(initial_x + ((cLen + defhsep) * tDisplayL), initial_y + ((cAlt + defvsep) * tDisplayE), cChar);
-    }
+    tVisible = string_copy(cString, 0, tCount);
     
-    if (!spaced) tCount = tCount + .5;
+    if (string_char_at(cString, tCount) == "{" &amp;&amp; string_char_at(cString, tCount + 7) == "}")
+    {
+        tCount = tCount + 7;
+        tVisible = string_copy(cString, 0, tCount);
+        formatText(xx, yy, tVisible);
+    } else {
+        formatText(xx, yy, tVisible);
+        tCount = tCount + .5;
+    }
 }
 </string>
           </argument>
