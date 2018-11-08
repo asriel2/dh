@@ -12,6 +12,8 @@ with (obj_dController)
         cDialog.dMode = dMode;
         cDialog.dFace = dFace;
         cDialog.dHeight = dHeight;
+        cDialog.lhsep = lhsep;
+        cDialog.lvsep = lvsep;
     } else {
         var pSize = string_length(dText[cDialog.tPage]);
         if (string_length(cDialog.tVisible) < pSize)

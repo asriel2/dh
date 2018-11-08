@@ -39,8 +39,8 @@ dMode = 0;
 dWidth = 80;
 dHeight = 40;
 cString = dText[tPage];
-lhsep = 1;
-lvsep = 1;
+lhsep = 60;
+lvsep = 60;
 
 if (dMode == 1)
 {
@@ -94,10 +94,10 @@ if (dText[tPage] != "")
     {
         tCount = tCount + 7;
         tVisible = string_copy(cString, 0, tCount);
-        formatText(xx, yy, tVisible);
+        formatText(xx, yy, tVisible, lhsep, lvsep);
     } else {
-        formatText(xx, yy, tVisible);
-        tCount = tCount + .5;
+        formatText(xx, yy, tVisible, lhsep, lvsep);
+        tCount = tCount + 1;
     }
 }
 </string>

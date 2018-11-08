@@ -106,6 +106,8 @@
         <script>scripts\showDialog.gml</script>
       </scripts>
     </scripts>
+    <script>scripts\setDialogHSep.gml</script>
+    <script>scripts\setDialogVSep.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\ut_ebits_font</font>

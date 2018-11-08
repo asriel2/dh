@@ -1,17 +1,10 @@
 ///formatText(x, y, str, lhsep, lvsep)
 
-initial_x = argument[0];
-initial_y = argument[1];
-cString = argument[2];
-lhsep = 1;
-lvsep = 1;
-
-if (argument_count == 4) {
-    lhsep = argument[4];
-} else if (argument_count == 5) {
-    lhsep = argument[4];
-    lvsep = argument[5];
-}
+initial_x = argument0;
+initial_y = argument1;
+cString = argument2;
+lhsep = argument3;
+lvsep = argument4;
 
 cLen = string_width("x");
 cAlt = string_height("x");

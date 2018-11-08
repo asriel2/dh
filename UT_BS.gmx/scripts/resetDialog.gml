@@ -12,6 +12,8 @@ with (obj_dController)
     yPos = 0;
     tDialogs = 0;
     dMode = 0;
+    lhsep = 1;
+    lvsep = 1;
     
     for (var i = 0; i < 100; i = i + 1)
     {
