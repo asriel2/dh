@@ -50,17 +50,14 @@ for (var i = 0; i &lt; 100; i = i + 1)
     dFace[i] = noone;
 }
 
-//test the functions
-setDialogPos(50, 50);
+setDialogPos(38, 38);
 setDialogWidth(400);
-setDialogVSep(0);
-setDialogHSep(0);
 addDialogLine("* {85a251}Dave#  ez de mierda#  pendejo ekisde :V");
 addDialogLine("* Intentas llamar por#  ayuda...");
 addDialogLine("* Pero nadie vino...");
 addDialogLine("{FF0000}* =)");
 setDialogMode(1);
-setDialogBox(400, 175);
+setDialogBox(400, 176);
 </string>
           </argument>
         </arguments>
@@ -86,32 +83,6 @@ setDialogBox(400, 175);
             <string>if (obj_teclado.deseleccionar_r)
 {
     showDialog();
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="64">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if (obj_teclado.deseleccionar_r)
-{
-    //formatText(250, 250, "* Sientes {998033}una{FFFFFF} extrana sensacion en la atmosfera...");
 }
 </string>
           </argument>
