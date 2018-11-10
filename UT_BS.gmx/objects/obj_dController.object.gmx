@@ -29,8 +29,6 @@
 event_inherited();
 cDialog = noone;
 dIndex = 0;
-xOffset = -32;
-yOffset = -40;
 dWidth = 80;
 tMargin = 10;
 xPos = 0;
@@ -48,14 +46,22 @@ for (var i = 0; i &lt; 100; i = i + 1)
     dSound[i] = snd_talk_default;
     dFont[i] = ut_ebits_font;
     dFace[i] = noone;
+    bColor[i] = c_white;
+    dColor[i] = c_black;
+    bSize[i] = 6;
+    sleepTime[i] = 1;
 }
 
 setDialogPos(38, 38);
 setDialogWidth(400);
-addDialogLine("* {85a251}Dave#  ez de mierda#  pendejo ekisde :V");
-addDialogLine("* Intentas llamar por#  ayuda...");
-addDialogLine("* Pero nadie vino...");
+addDialogLine("* {85a251}This#  is a#  test...");
+addDialogLine("* You called for help...");
+addDialogLine("{FF0000}* But nobody came.");
 addDialogLine("{FF0000}* =)");
+setDialogSleepTime(10);
+setDialogBSize(1);
+setDialogDColor(c_black);
+setDialogBColor(c_green);
 setDialogMode(1);
 setDialogBox(400, 176);
 </string>

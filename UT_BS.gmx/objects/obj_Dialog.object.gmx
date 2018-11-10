@@ -30,6 +30,10 @@ dText = noone;
 dSound = noone;
 dFont = noone;
 dFace = noone;
+dColor = noone;
+bColor = noone;
+bSize = noone;
+sleepTime = noone;
 tVisible = "";
 tPage = 0;
 tCount = 0;
@@ -71,25 +75,24 @@ if (dMode == 1)
             <string>///Dibujar el dialogo
 if (dText[tPage] != "")
 {   
-    draw_set_font(dFont[tPage]);
     cString = dText[tPage];
-    
-    if (tCount &lt; string_length(dText[tPage]))
-    {
-        audio_play_sound(dSound[tPage], 0, false);
-    }
-    
-    if (dMode == 1)
-    {
-        draw_rectangle_color(x, y, dWidth, dHeight, c_white, c_white, c_white, c_white, false);
-        draw_rectangle_color(x + 6, y + 6, dWidth - 6, dHeight - 6, c_black, c_black, c_black, c_black, false);
-    }
-    
+    draw_set_font(dFont[tPage]);
     var xx = x;
     var yy = y;
     
+    if (tCount &lt;= string_length(cString) &amp;&amp; string_char_at(cString, tCount) != '' &amp;&amp; string_char_at(cString, tCount) != ' ' &amp;&amp; string_char_at(cString, tCount) != '#')
+    {
+        audio_play_sound(dSound[tPage], 0, false);
+    }
+        
+    if (dMode == 1)
+    {
+        draw_rectangle_color(xx, yy, dWidth, dHeight, bColor[tPage], bColor[tPage], bColor[tPage], bColor[tPage], false);
+        draw_rectangle_color(xx + bSize[tPage], yy + bSize[tPage], dWidth - bSize[tPage], dHeight - bSize[tPage], dColor[tPage], dColor[tPage], dColor[tPage], dColor[tPage], false);
+    }
+        
     tVisible = string_copy(cString, 0, tCount);
-    
+        
     if (string_char_at(cString, tCount) == "{" &amp;&amp; string_char_at(cString, tCount + 7) == "}")
     {
         tCount = tCount + 7;
@@ -99,6 +102,7 @@ if (dText[tPage] != "")
         formatText(xx, yy, tVisible, lhsep, lvsep);
         tCount = tCount + 1;
     }
+    Sleep(sleepTime[tPage]);
 }
 </string>
           </argument>

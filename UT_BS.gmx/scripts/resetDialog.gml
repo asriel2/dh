@@ -4,8 +4,6 @@ with (obj_dController)
     event_inherited();
     cDialog = noone;
     dIndex = 0;
-    xOffset = -32;
-    yOffset = -40;
     dWidth = 80;
     tMargin = 10;
     xPos = 0;
@@ -21,5 +19,8 @@ with (obj_dController)
         dSound[i] = snd_talk_default;
         dFont[i] = ut_ebits_font;
         dFace[i] = noone;
+        bColor[i] = c_white;
+        dColor[i] = c_black;
+        bSize[i] = 6;
     }
 }
