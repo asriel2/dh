@@ -1,5 +1,5 @@
-///setDialogLine(str, index)
+///setDialogLine(index, str)
 with (obj_dController)
 {
-    if (argument1 < tDialogs) dText[argument1] = argument0;
+    if (argument0 < tDialogs) dText[argument0] = argument1;
 }

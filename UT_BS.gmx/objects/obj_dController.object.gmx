@@ -53,12 +53,13 @@ for (var i = 0; i &lt; 100; i = i + 1)
 }
 
 setDialogPos(38, 38);
+setDialogMargin(50);
 setDialogWidth(400);
 addDialogLine("* {85a251}This#  is a#  test...");
 addDialogLine("* You called for help...");
 addDialogLine("{FF0000}* But nobody came.");
 addDialogLine("{FF0000}* =)");
-setDialogSleepTime(10);
+setDialogSleepTime(50);
 setDialogBSize(1);
 setDialogDColor(c_black);
 setDialogBColor(c_green);
