@@ -18,8 +18,11 @@ with (obj_dController)
         cDialog.dColor = dColor;
         cDialog.bSize = bSize;
         cDialog.sleepTime = sleepTime;
+        cDialog.dTextMaxW = dTextMaxW;
+        cDialog.fixed = fixed;
     } else {
-        var pSize = string_length(dText[cDialog.tPage]);
+        var pSize = string_length(cDialog.dText[cDialog.tPage]);   
+        
         if (string_length(cDialog.tVisible) < pSize)
         {
             cDialog.tCount = pSize;

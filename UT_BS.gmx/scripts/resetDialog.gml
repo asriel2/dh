@@ -12,6 +12,8 @@ with (obj_dController)
     dMode = 0;
     lhsep = 1;
     lvsep = 1;
+    dTextMaxW = 100;
+    fixed = true;
     
     for (var i = 0; i < 100; i = i + 1)
     {

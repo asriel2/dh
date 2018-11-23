@@ -100,7 +100,6 @@
         <script>scripts\setDialogLine.gml</script>
         <script>scripts\setDialogSound.gml</script>
         <script>scripts\setDialogLineFont.gml</script>
-        <script>scripts\setDialogWidth.gml</script>
         <script>scripts\setDialogPos.gml</script>
         <script>scripts\setDialogHSep.gml</script>
         <script>scripts\setDialogVSep.gml</script>
@@ -110,6 +109,8 @@
         <script>scripts\setDialogLineBColor.gml</script>
         <script>scripts\setDialogDColor.gml</script>
         <script>scripts\setDialogLineDColor.gml</script>
+        <script>scripts\setDialogMWidth.gml</script>
+        <script>scripts\setDialogFixed.gml</script>
       </scripts>
       <scripts name="Misc">
         <script>scripts\addDialogLine.gml</script>

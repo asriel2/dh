@@ -1,10 +1,11 @@
-///formatText(x, y, str, lhsep, lvsep)
+///formatText(x, y, str, lhsep, lvsep, mwidth, fixed)
 
 initial_x = argument0;
 initial_y = argument1;
 cString = argument2;
 lhsep = argument3;
 lvsep = argument4;
+fixed = argument5;
 
 cLen = string_width("x");
 cAlt = string_height("x");
@@ -42,7 +43,13 @@ for (var i = 1; i != string_length(cString) + 1; ++i)
     {
         rawIndex = rawIndex + 1;
         letterIndex = 0;
-        omittedChars[i] = true;
+        if (fixed)
+        {
+            cChar = "";
+            letterIndex = letterIndex + 1;
+        } else {
+            omittedChars[i] = true;
+        }
     } else if (cChar == '{' || cChar == '}') {
         omittedChars[i] = true;
     }
@@ -56,3 +63,4 @@ for (var i = 1; i != string_length(cString) + 1; ++i)
         draw_text(initial_x + ((cLen + lhsep) * letterIndex), initial_y + ((cAlt + lvsep) * rawIndex), cChar);
     }
 }
+return rawIndex;

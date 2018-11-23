@@ -29,16 +29,18 @@
 event_inherited();
 cDialog = noone;
 dIndex = 0;
-dWidth = 80;
+dWidth = 250;
 tMargin = 10;
 xPos = 0;
 yPos = 0;
 tDialogs = 0;
 lhsep = 1;
 lvsep = 1;
-dHeight = 40;
+dHeight = 100;
 dMode = 0;
 dSprite = spr_dialogmode3_1;
+dTextMaxW = dWidth;
+fixed = true;
 
 for (var i = 0; i &lt; 100; i = i + 1)
 {
@@ -53,9 +55,10 @@ for (var i = 0; i &lt; 100; i = i + 1)
 }
 
 setDialogPos(38, 38);
-setDialogMargin(50);
-setDialogWidth(400);
-addDialogLine("* {85a251}This#  is a#  test...");
+setDialogMargin(10);
+setDialogFixed(1);
+setDialogMWidth(200);
+addDialogLine("* El satanas de la programacion alias blade lo hizo de nuevo");
 addDialogLine("* You called for help...");
 addDialogLine("{FF0000}* But nobody came.");
 addDialogLine("{FF0000}* =)");
@@ -64,7 +67,8 @@ setDialogBSize(1);
 setDialogDColor(c_black);
 setDialogBColor(c_green);
 setDialogMode(1);
-setDialogBox(400, 176);
+setDialogBox(500, 176);
+setDialogDColor(c_dkgray);
 </string>
           </argument>
         </arguments>
