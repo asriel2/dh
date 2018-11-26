@@ -93,6 +93,7 @@ if (dText[tPage] != "")
     
     if (lCPage != tPage)
     {
+        dTextMaxW = (((dWidth - (xx + bSize[tPage])) - (tMargin * 2)) - bSize[tPage]) - 50;
         cString = dText[tPage];
         
         for (var i = 1; i != string_length(cString) + 1; ++i)
@@ -104,62 +105,67 @@ if (dText[tPage] != "")
                 rString = rString + string_char_at(cString, i);
             }
         }
-        var j = 1;
         
-        for (var aIndex = 1; aIndex != string_length(cString) + 1; ++aIndex)
+        if (string_width(rString) &gt; dTextMaxW)
         {
-            j = aIndex;
-            var tWords = "";
             
-            for (var i = aIndex; i != string_length(cString) + 1; ++i)
-            {
-                if (string_char_at(cString, i) == " ") lSpace = i;
+            var j = 1;
+            var tWords = "";
+            var mChars = 0;
+            var lSpace = 0;
+            var tempJ = 1;
+            var cCString = "";  
+            
+            for (var i = 1; i != string_length(rString); ++i)
+            {              
+                if (string_width(cCString) &gt; dTextMaxW) 
+                {
+                    mChars = string_length(cCString) - 1;
+                    break;
+                } else if (string_width(cCString) == (dTextMaxW - (tMargin * 2))) {
+                    mChars = string_length(cCString);
+                    break;
+                }
+                cCString = cCString + "c";
+            }
+            lSpace = 0;
+
+            for (var cIndex = 1; cIndex != string_length(cString); ++cIndex)
+            {   
+                if ((string_length(rString) - tempJ) &lt;= mChars) break;
                 
-                if (string_char_at(cString, i) == "{" &amp;&amp; string_char_at(cString, i + 7) == "}")
-                {   
-                    i = i + 7;
+                for (var i = cIndex; i != string_length(cString); ++i)
+                {
+                    if (string_char_at(cString, i) == " ") lSpace = i;        
                     
-                    if (string_char_at(cString, i) == " ") lSpace = i;
-                    
-                    if (j &lt;= string_length(rString))
+                    if (string_char_at(cString, i) == "{" &amp;&amp; string_char_at(cString, i + 7) == "}")
                     {
-                        tWords = string_copy_words(rString, aIndex, j);    
-                        if (string_width(tWords) &gt; dTextMaxW) 
+                        i = i + 7;
+                    } else {
+                        if (j == mChars)
                         {
                             cString = string_delete(cString, lSpace, 1);
                             cString = string_insert("#", cString, lSpace);
+                            j = 1;
                             cIndex = lSpace;
                             break;
                         }
+                        ++j;
+                        ++tempJ;
                     }
-                } else { 
-                    if (j &lt;= string_length(rString))
-                    {
-                        tWords = string_copy_words(rString, aIndex, j);    
-                        if (string_width(tWords) &gt; dTextMaxW) 
-                        {
-                            cString = string_delete(cString, lSpace, 1);
-                            cString = string_insert("#", cString, lSpace);
-                            aIndex = lSpace;
-                            break;
-                        }
-                    }
-                }
-                if (j &lt;= string_length(rString))
-                {
-                    ++j;
                 }
             }
+        } else {
+            show_message("asd");
         }
         cfString = cString;
         lCPage = tPage;
     }
-    
+
     if (tCount &lt;= string_length(cfString) &amp;&amp; string_char_at(cfString, tCount) != '' &amp;&amp; string_char_at(cfString, tCount) != ' ' &amp;&amp; string_char_at(cfString, tCount) != '#')
     {
         audio_play_sound(dSound[tPage], 0, false);
     }
-    
     if (string_char_at(cfString, tCount) == "{" &amp;&amp; string_char_at(cfString, tCount + 7) == "}")
     {
         tCount = tCount + 8;    

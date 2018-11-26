@@ -39,7 +39,6 @@ lvsep = 1;
 dHeight = 100;
 dMode = 0;
 dSprite = spr_dialogmode3_1;
-dTextMaxW = dWidth;
 fixed = true;
 
 for (var i = 0; i &lt; 100; i = i + 1)
@@ -54,21 +53,19 @@ for (var i = 0; i &lt; 100; i = i + 1)
     sleepTime[i] = 1;
 }
 
-setDialogPos(38, 38);
+setDialogPos(20, 38);
 setDialogMargin(10);
 setDialogFixed(1);
-setDialogMWidth(200);
-addDialogLine("* El satanas de la programacion alias blade lo hizo de nuevo");
+addDialogLine("* Hola... humano, veo que finalment has encontrado mi escondite. Supongo que no hay nada mas que presentarme, no?");
 addDialogLine("* You called for help...");
 addDialogLine("{FF0000}* But nobody came.");
 addDialogLine("{FF0000}* =)");
-setDialogSleepTime(50);
-setDialogBSize(1);
+setDialogSleepTime(10);
+setDialogBSize(3);
 setDialogDColor(c_black);
-setDialogBColor(c_green);
+setDialogBColor(c_navy);
 setDialogMode(1);
-setDialogBox(500, 176);
-setDialogDColor(c_dkgray);
+setDialogBox(620, 220);
 </string>
           </argument>
         </arguments>

@@ -4,6 +4,17 @@ var index = argument1;
 var count = argument2;
 
 var char = string_char_at(str, count);
+var return_str = "";
+
+if (char == " ")
+{
+    for (var i = index; i != count; ++i)
+    {
+        return_str = return_str + string_char_at(str, i);
+    }
+    
+    return return_str;
+}
 
 for (var i = count; i != string_length(str) + 1; ++i)
 {
@@ -15,8 +26,6 @@ for (var i = count; i != string_length(str) + 1; ++i)
         break;
     }
 }
-
-var return_str = "";
 
 for (var i = index; i != count; ++i)
 {
