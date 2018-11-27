@@ -91,25 +91,39 @@
     </scripts>
     <scripts name="Dialog">
       <scripts name="Sets">
-        <script>scripts\setDialogMode.gml</script>
-        <script>scripts\setDialogBox.gml</script>
-        <script>scripts\setDialogLineSound.gml</script>
-        <script>scripts\setDialogFont.gml</script>
-        <script>scripts\setDialogSleepTime.gml</script>
-        <script>scripts\setDialogMargin.gml</script>
-        <script>scripts\setDialogLine.gml</script>
-        <script>scripts\setDialogSound.gml</script>
-        <script>scripts\setDialogLineFont.gml</script>
-        <script>scripts\setDialogPos.gml</script>
-        <script>scripts\setDialogHSep.gml</script>
-        <script>scripts\setDialogVSep.gml</script>
-        <script>scripts\setDialogBSize.gml</script>
-        <script>scripts\setDialogLineBSize.gml</script>
-        <script>scripts\setDialogBColor.gml</script>
-        <script>scripts\setDialogLineBColor.gml</script>
-        <script>scripts\setDialogDColor.gml</script>
-        <script>scripts\setDialogLineDColor.gml</script>
-        <script>scripts\setDialogFixed.gml</script>
+        <scripts name="Line">
+          <script>scripts\setDialogLineDColor.gml</script>
+          <script>scripts\setDialogLineMode.gml</script>
+          <script>scripts\setDialogLineBColor.gml</script>
+          <script>scripts\setDialogLineBSize.gml</script>
+          <script>scripts\setDialogLineFont.gml</script>
+          <script>scripts\setDialogLineSound.gml</script>
+          <script>scripts\setDialogLine.gml</script>
+          <script>scripts\setDialogLineSleepTime.gml</script>
+          <script>scripts\setDialogLinePos.gml</script>
+          <script>scripts\setDialogLineVSep.gml</script>
+          <script>scripts\setDialogLineMargin.gml</script>
+          <script>scripts\setDialogLineHSep.gml</script>
+          <script>scripts\setDialogLineBox.gml</script>
+          <script>scripts\setDialogLineFixed.gml</script>
+          <script>scripts\setDialogLineSprite.gml</script>
+        </scripts>
+        <scripts name="Global">
+          <script>scripts\setDialogMode.gml</script>
+          <script>scripts\setDialogSleepTime.gml</script>
+          <script>scripts\setDialogPos.gml</script>
+          <script>scripts\setDialogBSize.gml</script>
+          <script>scripts\setDialogBColor.gml</script>
+          <script>scripts\setDialogVSep.gml</script>
+          <script>scripts\setDialogSound.gml</script>
+          <script>scripts\setDialogMargin.gml</script>
+          <script>scripts\setDialogDColor.gml</script>
+          <script>scripts\setDialogSprite.gml</script>
+          <script>scripts\setDialogHSep.gml</script>
+          <script>scripts\setDialogFixed.gml</script>
+          <script>scripts\setDialogFont.gml</script>
+          <script>scripts\setDialogBox.gml</script>
+        </scripts>
       </scripts>
       <scripts name="Misc">
         <script>scripts\addDialogLine.gml</script>

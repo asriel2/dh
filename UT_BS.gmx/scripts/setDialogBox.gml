@@ -1,6 +1,9 @@
 ///setDialogBox(width, height)
 with (obj_dController)
 {
-    dWidth = argument0;
-    dHeight = argument1;
+    for (var i = tDialogs + 1; i != 100; ++i)
+    {
+        dWidth[i] = argument0;
+        dHeight[i] = argument1;
+    }
 }

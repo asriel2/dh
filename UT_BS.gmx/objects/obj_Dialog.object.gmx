@@ -34,28 +34,26 @@ dColor = noone;
 bColor = noone;
 bSize = noone;
 sleepTime = noone;
+m3spr = noone;
+imgSpd = noone;
+fixed = noone;
+dTextMaxW = noone;
+dMode = noone;
+dHeight = noone;
+dWidth = noone;
+lhsep = noone;
+lvsep = noone;
+tMargin = noone;
+xPos = noone;
+yPos = noone; 
 tVisible = "";
 tPage = 0;
 tCount = 0;
-tMargin = 0; 
-aLength = 0;
-dMode = 0;
-dWidth = 80;
-dHeight = 40;
 cString = dText[tPage];
 rString = "";
-lhsep = 60;
-lvsep = 60;
-dTextMaxW = 10;
 lSpace = 0;
 lCPage = -1;
-fixed = true;
 cfString = "";
-
-if (dMode == 1)
-{
-    tMargin = tMargin + 6;
-}
 </string>
           </argument>
         </arguments>
@@ -82,19 +80,38 @@ if (dMode == 1)
 if (dText[tPage] != "")
 {   
     draw_set_font(dFont[tPage]);
+    x = xPos[tPage];
+    y = yPos[tPage];
+    
     var xx = x;
     var yy = y;
-        
-    if (dMode == 1)
+    
+    if (dMode[tPage] == 1)
     {
-        draw_rectangle_color(xx, yy, dWidth, dHeight, bColor[tPage], bColor[tPage], bColor[tPage], bColor[tPage], false);
-        draw_rectangle_color(xx + bSize[tPage], yy + bSize[tPage], dWidth - bSize[tPage], dHeight - bSize[tPage], dColor[tPage], dColor[tPage], dColor[tPage], dColor[tPage], false);
+        draw_rectangle_color(xx, yy, xx + dWidth[tPage], yy + dHeight[tPage], bColor[tPage], bColor[tPage], bColor[tPage], bColor[tPage], false);
+        draw_rectangle_color(xx + bSize[tPage], yy + bSize[tPage], xx + dWidth[tPage] - bSize[tPage], yy + dHeight[tPage] - bSize[tPage], dColor[tPage], dColor[tPage], dColor[tPage], dColor[tPage], false);
+    } else if (dMode[tPage] == 2) {
+        draw_sprite(m3spr[tPage], 0, xx, yy);
     }
     
     if (lCPage != tPage)
     {
-        dTextMaxW = (((dWidth - (xx + bSize[tPage])) - (tMargin * 2)) - bSize[tPage]) - 50;
         cString = dText[tPage];
+        
+        if (dMode[tPage] == 0)
+        {
+            dTextMaxW[tPage] = (dWidth[tPage] - xx);
+            cString = dText[tPage];
+        } else if (dMode[tPage] == 1) {
+            if (dFace[tPage] != noone)
+            {
+                dTextMaxW[tPage] = (((((dWidth[tPage] - (xx + bSize[tPage])) - (tMargin[tPage] * 2)) - bSize[tPage]) - 50) - tMargin[tPage]) - sprite_get_width(dFace[tPage]);
+            } else {
+                dTextMaxW[tPage] = (((dWidth[tPage] - (xx + bSize[tPage])) - (tMargin[tPage] * 2)) - bSize[tPage]) - 50;
+            }
+        } else if (dMode == 2) {
+            dTextMaxW[tPage] = dWidth[tPage] - xx;
+        }
         
         for (var i = 1; i != string_length(cString) + 1; ++i)
         {
@@ -104,32 +121,30 @@ if (dText[tPage] != "")
             } else {
                 rString = rString + string_char_at(cString, i);
             }
-        }
+        }          
+        var j = 1;
+        var tWords = "";
+        var mChars = 0;
+        var lSpace = 0;
+        var tempJ = 1;
+        var cCString = "";  
         
-        if (string_width(rString) &gt; dTextMaxW)
-        {
-            
-            var j = 1;
-            var tWords = "";
-            var mChars = 0;
-            var lSpace = 0;
-            var tempJ = 1;
-            var cCString = "";  
-            
-            for (var i = 1; i != string_length(rString); ++i)
-            {              
-                if (string_width(cCString) &gt; dTextMaxW) 
-                {
-                    mChars = string_length(cCString) - 1;
-                    break;
-                } else if (string_width(cCString) == (dTextMaxW - (tMargin * 2))) {
-                    mChars = string_length(cCString);
-                    break;
-                }
-                cCString = cCString + "c";
+        for (var i = 1; i != string_length(rString); ++i)
+        {              
+            if (string_width(cCString) &gt; dTextMaxW[tPage]) 
+            {
+                mChars = string_length(cCString) - 1;
+                break;
+            } else if (string_width(cCString) == dTextMaxW[tPage]) {
+                mChars = string_length(cCString);
+                break;
             }
-            lSpace = 0;
+            cCString = cCString + "c";
+        }
+        lSpace = 0;
 
+        if (string_length(rString) &gt; mChars)
+        {        
             for (var cIndex = 1; cIndex != string_length(cString); ++cIndex)
             {   
                 if ((string_length(rString) - tempJ) &lt;= mChars) break;
@@ -156,7 +171,7 @@ if (dText[tPage] != "")
                 }
             }
         } else {
-            show_message("asd");
+            show_message("Cortiko");
         }
         cfString = cString;
         lCPage = tPage;
@@ -171,10 +186,37 @@ if (dText[tPage] != "")
         tCount = tCount + 8;    
         
         tVisible = string_copy(cfString, 0, tCount);
-        formatText(xx + tMargin, yy + tMargin, tVisible, lhsep, lvsep, fixed);
+        
+        if (dMode[tPage] == 0)
+        {
+            formatText(xx, yy, tVisible, lhsep[tPage], lvsep[tPage], fixed[tPage]);
+        } else if (dMode[tPage] == 1) {
+            if (dFace[tPage] != noone)
+            {
+                formatText(xx + bSize[tPage] + sprite_get_width(dFace[tPage]) + tMargin[tPage], yy + bSize[tPage] + tMargin[tPage], tVisible, lhsep[tPage], lvsep[tPage], fixed[tPage]);
+            } else {
+                formatText(xx + tMargin[tPage], yy + tMargin[tPage], tVisible, lhsep[tPage], lvsep[tPage], fixed[tPage]);
+            }
+        } else if (dMode[tPage] == 2) {
+            formatText(xx, yy, tVisible, lhsep[tPage], lvsep[tPage], fixed[tPage]);
+        }
     } else {
         tVisible = string_copy(cfString, 0, tCount); 
-        formatText(xx + tMargin, yy + tMargin, tVisible, lhsep, lvsep, fixed);
+        
+        if (dMode[tPage] == 0)
+        {
+            formatText(xx, yy, tVisible, lhsep[tPage], lvsep[tPage], fixed[tPage]);
+        } else if (dMode[tPage] == 1) {
+            if (dFace[tPage] != noone)
+            {
+                formatText(xx + bSize[tPage] + sprite_get_width(dFace[tPage]) + tMargin[tPage], yy + bSize[tPage] + tMargin[tPage], tVisible, lhsep[tPage], lvsep[tPage], fixed[tPage]);
+            } else {
+                formatText(xx + tMargin[tPage], yy + tMargin[tPage], tVisible, lhsep[tPage], lvsep[tPage], fixed[tPage]);
+            }
+        } else if (dMode[tPage] == 2) {
+            formatText(xx, yy, tVisible, lhsep[tPage], lvsep[tPage], fixed[tPage]);
+        }
+        
         tCount = tCount + 1;
     }
     Sleep(sleepTime[tPage]);

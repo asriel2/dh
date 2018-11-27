@@ -1,5 +1,5 @@
 ///setDialogDColor(color)
 with (obj_dController)
 {
-    for (var i = 0; i != 100; ++i) dColor[i] = argument0;
+    for (var i = tDialogs + 1; i != 100; ++i) dColor[i] = argument0;
 }

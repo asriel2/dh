@@ -28,44 +28,44 @@
             <string>///Inicializar controllador de dialogos
 event_inherited();
 cDialog = noone;
-dIndex = 0;
-dWidth = 250;
-tMargin = 10;
-xPos = 0;
-yPos = 0;
 tDialogs = 0;
-lhsep = 1;
-lvsep = 1;
-dHeight = 100;
-dMode = 0;
-dSprite = spr_dialogmode3_1;
-fixed = true;
 
 for (var i = 0; i &lt; 100; i = i + 1)
 {
+    dHeigth[i] = 250;
+    dWidth[i] = 500;
+    imgSpd[i] = 1;
     dText[i] = "";
     dSound[i] = snd_talk_default;
     dFont[i] = ut_ebits_font;
-    dFace[i] = noone;
+    dFace[i] = 0;
     bColor[i] = c_white;
     dColor[i] = c_black;
     bSize[i] = 6;
     sleepTime[i] = 1;
+    m3spr[i] = spr_dialogmode3_1;
+    fixed[i] = false;
+    dTextMaxW[i] = 500;
+    dMode[i] = 0;
+    lhsep[i] = 1;
+    lvsep[i] = 1;
+    tMargin[i] = 10;
+    xPos[i] = 0;
+    yPos[i] = 0;
 }
 
 setDialogPos(20, 38);
-setDialogMargin(10);
+setDialogBox(620, 220);
 setDialogFixed(1);
-addDialogLine("* Hola... humano, veo que finalment has encontrado mi escondite. Supongo que no hay nada mas que presentarme, no?");
-addDialogLine("* You called for help...");
-addDialogLine("{FF0000}* But nobody came.");
-addDialogLine("{FF0000}* =)");
 setDialogSleepTime(10);
 setDialogBSize(3);
 setDialogDColor(c_black);
 setDialogBColor(c_navy);
 setDialogMode(1);
-setDialogBox(620, 220);
+addDialogLine("* Hola... humano, veo que finalment has encontrado mi escondite. Supongo que no hay nada mas que presentarme, no?");
+addDialogLine("* You called for help...");
+addDialogLine("{FF0000}* But nobody came.");
+addDialogLine("{FF0000}* =)");
 </string>
           </argument>
         </arguments>

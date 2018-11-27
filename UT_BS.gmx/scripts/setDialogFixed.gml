@@ -1,5 +1,5 @@
 ///setDialogFixed(fixed)
 with (obj_dController)
 {
-    fixed = argument0;
+    for (var i = tDialogs + 1; i != 100; ++i) fixed[i] = argument0;
 }

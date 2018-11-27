@@ -3,7 +3,7 @@ with (obj_dController)
 {
     if (!instance_exists(cDialog))
     {
-        cDialog = instance_create(xPos, yPos, obj_Dialog);
+        cDialog = instance_create(x, y, obj_Dialog);
         cDialog.dText = dText;
         cDialog.dSound = dSound;
         cDialog.dFont = dFont;
@@ -19,6 +19,11 @@ with (obj_dController)
         cDialog.bSize = bSize;
         cDialog.sleepTime = sleepTime;
         cDialog.fixed = fixed;
+        cDialog.yPos = yPos;
+        cDialog.xPos = xPos;
+        cDialog.dTextMaxW = dTextMaxW;
+        cDialog.imgSpd = imgSpd;
+        cDialog.m3spr = m3spr;
     } else {
         var pSize = string_length(cDialog.dText[cDialog.tPage]);   
         

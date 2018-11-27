@@ -1,5 +1,5 @@
 ///setDialogFont(font)
 with (obj_dController)
 {
-    for (var i = 0; i != 100; ++i) dFont[i] = argument0;
+    for (var i = tDialogs + 1; i != 100; ++i) dFont[i] = argument0;
 }
