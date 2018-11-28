@@ -63,4 +63,3 @@ for (var i = 1; i != string_length(cString) + 1; ++i)
         draw_text(initial_x + ((cLen + lhsep) * letterIndex), initial_y + ((cAlt + lvsep) * rawIndex), cChar);
     }
 }
-return rawIndex;

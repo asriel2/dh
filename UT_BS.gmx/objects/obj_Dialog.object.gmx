@@ -46,6 +46,7 @@ lvsep = noone;
 tMargin = noone;
 xPos = noone;
 yPos = noone; 
+Face = noone;
 tVisible = "";
 tPage = 0;
 tCount = 0;
@@ -97,6 +98,7 @@ if (dText[tPage] != "")
     if (lCPage != tPage)
     {
         cString = dText[tPage];
+        rString = "";
         
         if (dMode[tPage] == 0)
         {
@@ -105,14 +107,13 @@ if (dText[tPage] != "")
         } else if (dMode[tPage] == 1) {
             if (dFace[tPage] != noone)
             {
-                dTextMaxW[tPage] = (((((dWidth[tPage] - (xx + bSize[tPage])) - (tMargin[tPage] * 2)) - bSize[tPage]) - 50) - tMargin[tPage]) - sprite_get_width(dFace[tPage]);
+                dTextMaxW[tPage] = (((((dWidth[tPage] - (xx + bSize[tPage])) - (tMargin[tPage] * 2)) - bSize[tPage]) - 50) - tMargin[tPage]) - sprite_get_width(dFace[tPage]) - 10;
             } else {
-                dTextMaxW[tPage] = (((dWidth[tPage] - (xx + bSize[tPage])) - (tMargin[tPage] * 2)) - bSize[tPage]) - 50;
+                dTextMaxW[tPage] = (((dWidth[tPage] - (xx + bSize[tPage])) - (tMargin[tPage] * 2)) - bSize[tPage]) - 70;
             }
         } else if (dMode == 2) {
             dTextMaxW[tPage] = dWidth[tPage] - xx;
         }
-        
         for (var i = 1; i != string_length(cString) + 1; ++i)
         {
             if (string_char_at(cString, i) == "{" &amp;&amp; string_char_at(cString, i + 7) == "}")
@@ -121,33 +122,40 @@ if (dText[tPage] != "")
             } else {
                 rString = rString + string_char_at(cString, i);
             }
-        }          
-        var j = 1;
-        var tWords = "";
-        var mChars = 0;
-        var lSpace = 0;
-        var tempJ = 1;
-        var cCString = "";  
+        }    
         
-        for (var i = 1; i != string_length(rString); ++i)
-        {              
-            if (string_width(cCString) &gt; dTextMaxW[tPage]) 
-            {
-                mChars = string_length(cCString) - 1;
-                break;
-            } else if (string_width(cCString) == dTextMaxW[tPage]) {
-                mChars = string_length(cCString);
-                break;
+        if (string_width(rString) &gt; dTextMaxW[tPage])
+        {
+            var j = 1;
+            var tWords = "";
+            var mChars = 0;
+            var lSpace = 0;
+            var tempJ = 1;
+            var cCString = "";  
+            var cLine = 0;
+            
+            for (var i = 1; i != string_length(rString) + 1; ++i)
+            {         
+                if (string_width(string_copy(rString, 1, i)) &gt; dTextMaxW[tPage]) 
+                {
+                    mChars = i - 1;
+                    break;
+                }
             }
-            cCString = cCString + "c";
-        }
-        lSpace = 0;
-
-        if (string_length(rString) &gt; mChars)
-        {        
+            
+            
+            lSpace = 0;
+                  
             for (var cIndex = 1; cIndex != string_length(cString); ++cIndex)
             {   
-                if ((string_length(rString) - tempJ) &lt;= mChars) break;
+                //if (fixed[tPage]) if ((string_length(rString) - tempJ) &lt;= (mChars)) break;
+                //else if ((string_length(rString) - tempJ) &lt;= mChars) break;
+                if ((string_length(rString) - tempJ) &lt;= mChars - 2)
+                {
+                    show_message("resta: " + string(string_length(rString) - tempJ)); 
+                    show_message(string_copy(rString, string_length(rString) - tempJ, string_length(rString)));
+                    break;
+                }
                 
                 for (var i = cIndex; i != string_length(cString); ++i)
                 {
@@ -157,26 +165,70 @@ if (dText[tPage] != "")
                     {
                         i = i + 7;
                     } else {
-                        if (j == mChars)
+                        /*if (fixed[tPage])
                         {
-                            cString = string_delete(cString, lSpace, 1);
-                            cString = string_insert("#", cString, lSpace);
-                            j = 1;
-                            cIndex = lSpace;
-                            break;
-                        }
-                        ++j;
+                            if (cLine &gt; 0)
+                            {*/
+                                if (j &gt; mChars)
+                                {
+                                    cString = string_delete(cString, lSpace, 1);
+                                    cString = string_insert("#", cString, lSpace);
+                                    if(!(string_char_at(rString, tempJ) == " "))
+                                    {
+                                        for (var z = tempJ; z != 1; --z)
+                                        {
+                                            if (string_char_at(rString, z) == " ")
+                                            {
+                                                tempJ = z;
+                                                show_message(string(tempJ));
+                                                break;   
+                                            }   
+                                        }
+                                        j = 1;
+                                        ++cLine;
+                                        cIndex = lSpace;
+                                        break; 
+                                    } else {
+                                        show_debug_message(string(tempJ));
+                                        j = 1;
+                                        ++cLine;
+                                        cIndex = lSpace;
+                                        break;   
+                                    }
+                                }
+                            /*} else {
+                                if (j &gt; mChars)
+                                {
+                                    cString = string_delete(cString, lSpace, 1);
+                                    cString = string_insert("#", cString, lSpace);
+                                    j = 1;
+                                    ++cLine;
+                                    cIndex = lSpace;
+                                    break;
+                                } 
+                            }
+                        } else {
+                            if (j &gt; mChars)
+                            {
+                                cString = string_delete(cString, lSpace, 1);
+                                cString = string_insert("#", cString, lSpace);
+                                j = 1;
+                                ++cLine;
+                                cIndex = lSpace;
+                                break;
+                            } 
+                        }*/
                         ++tempJ;
+                        ++j;
                     }
                 }
             }
-        } else {
-            show_message("Cortiko");
         }
         cfString = cString;
         lCPage = tPage;
     }
-
+    draw_rectangle(dTextMaxW[tPage], yy, dTextMaxW[tPage] + 50, yy + 60, true);
+    
     if (tCount &lt;= string_length(cfString) &amp;&amp; string_char_at(cfString, tCount) != '' &amp;&amp; string_char_at(cfString, tCount) != ' ' &amp;&amp; string_char_at(cfString, tCount) != '#')
     {
         audio_play_sound(dSound[tPage], 0, false);
