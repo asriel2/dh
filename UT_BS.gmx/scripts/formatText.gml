@@ -6,12 +6,11 @@ cString = argument2;
 lhsep = argument3;
 lvsep = argument4;
 fixed = argument5;
-
-cLen = string_width("x");
 cAlt = string_height("x");
+cWidth = 0;
 cColor = c_white;
-letterIndex = 0;
 rawIndex = 0;
+cChar = "";
 
 for (var i = 1; i != string_length(cString) + 1; ++i)
 {
@@ -42,12 +41,14 @@ for (var i = 1; i != string_length(cString) + 1; ++i)
     if (cChar == '#')
     {
         rawIndex = rawIndex + 1;
-        letterIndex = 0;
+        cWidth = 0;
+
         if (fixed)
         {
             cChar = "";
-            letterIndex = letterIndex + 1;
+            cWidth = string_width("    ");
         } else {
+            cWidth = 0;
             omittedChars[i] = true;
         }
     } else if (cChar == '{' || cChar == '}') {
@@ -56,10 +57,8 @@ for (var i = 1; i != string_length(cString) + 1; ++i)
     
     if (omittedChars[i] == false)
     {
-        letterIndex = letterIndex + 1;
-        
         draw_set_color(cColor);
-
-        draw_text(initial_x + ((cLen + lhsep) * letterIndex), initial_y + ((cAlt + lvsep) * rawIndex), cChar);
+        draw_text(initial_x + cWidth, initial_y + ((cAlt + lvsep) * rawIndex), cChar);
+        cWidth = cWidth + string_width(cChar) + lhsep;
     }
 }

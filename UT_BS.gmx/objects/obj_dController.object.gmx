@@ -47,8 +47,8 @@ for (var i = 0; i != 100; ++i)
     fixed[i] = false;
     dTextMaxW[i] = 500;
     dMode[i] = 0;
-    lhsep[i] = 1;
-    lvsep[i] = 1;
+    lhsep[i] = 0;
+    lvsep[i] = 0;
     tMargin[i] = 10;
     xPos[i] = 0;
     yPos[i] = 0;
@@ -57,6 +57,7 @@ for (var i = 0; i != 100; ++i)
 setDialogMode(1);
 setDialogFixed(1);
 setDialogBox(500, 250);
+setDialogMargin(25);
 addDialogLine("* Hola... humano, veo que finalment has encontrado mi escondite. Supongo que no hay nada mas que presentarme, no?");
 addDialogLine("* You called for help...");
 addDialogLine("{FF0000}* But nobody came.");
