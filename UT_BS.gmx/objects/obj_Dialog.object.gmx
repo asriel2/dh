@@ -46,7 +46,7 @@ lvsep = noone;
 tMargin = noone;
 xPos = noone;
 yPos = noone; 
-Face = noone;
+fMargin = noone;
 cWidth = 0;
 tVisible = "";
 tPage = 0;
@@ -82,6 +82,7 @@ cfString = "";
 if (dText[tPage] != "")
 {   
     draw_set_font(dFont[tPage]);
+    image_speed = iSpeed[tPage];
     x = xPos[tPage];
     y = yPos[tPage];
     
@@ -92,6 +93,11 @@ if (dText[tPage] != "")
     {
         draw_rectangle_color(xx, yy, xx + dWidth[tPage], yy + dHeight[tPage], bColor[tPage], bColor[tPage], bColor[tPage], bColor[tPage], false);
         draw_rectangle_color(xx + bSize[tPage], yy + bSize[tPage], xx + dWidth[tPage] - bSize[tPage], yy + dHeight[tPage] - bSize[tPage], dColor[tPage], dColor[tPage], dColor[tPage], dColor[tPage], false);
+        
+        if (dFace[tPage] != noone)
+        {
+            draw_sprite(dFace[tPage], -1, xx + bSize[tPage] + fMargin[tPage], yy + bSize[tPage] + fMargin[tPage]);
+        }
     } else if (dMode[tPage] == 2) {
         draw_sprite(m3spr[tPage], 0, xx, yy);
     }
@@ -107,13 +113,14 @@ if (dText[tPage] != "")
         } else if (dMode[tPage] == 1) {
             if (dFace[tPage] != noone)
             {
-                dTextMaxW[tPage] = (((((dWidth[tPage] - (xx + bSize[tPage])) - (tMargin[tPage] * 2)) - bSize[tPage]) - 50) - tMargin[tPage]) - sprite_get_width(dFace[tPage]) - 10;
+                dTextMaxW[tPage] = ((xx + dWidth[tPage]) - ((tMargin[tPage] * 2) + bSize[tPage])) - (sprite_get_width(dFace[tPage]) - fMargin[tPage]);
             } else {
                 dTextMaxW[tPage] = ((xx + dWidth[tPage]) - ((tMargin[tPage] * 2) + bSize[tPage]));
             }
-        } else if (dMode == 2) {
-            dTextMaxW[tPage] = dWidth[tPage] - xx;
+        } else if (dMode[tPage] == 2) {
+            dTextMaxW[tPage] = (sprite_get_width(m3spr[tPage]) + xx) - tMargin[tPage];
         }
+        
         for (var i = 1; i != string_length(cString) + 1; ++i)
         {
             if (string_char_at(cString, i) == "{" &amp;&amp; string_char_at(cString, i + 7) == "}")
@@ -261,7 +268,6 @@ if (dText[tPage] != "")
         cfString = cString;
         lCPage = tPage;
     }
-
     if (tCount &lt;= string_length(cfString) &amp;&amp; string_char_at(cfString, tCount) != '' &amp;&amp; string_char_at(cfString, tCount) != ' ' &amp;&amp; string_char_at(cfString, tCount) != '#')
     {
         audio_play_sound(dSound[tPage], 0, false);

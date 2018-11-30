@@ -123,6 +123,7 @@
           <script>scripts\setDialogFixed.gml</script>
           <script>scripts\setDialogFont.gml</script>
           <script>scripts\setDialogBox.gml</script>
+          <script>scripts\setDialogFace.gml</script>
         </scripts>
       </scripts>
       <scripts name="Misc">

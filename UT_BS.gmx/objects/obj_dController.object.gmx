@@ -52,12 +52,14 @@ for (var i = 0; i != 100; ++i)
     tMargin[i] = 10;
     xPos[i] = 0;
     yPos[i] = 0;
+    fMargin[i] = 10;
 }
 
-setDialogMode(1);
+setDialogMode(2);
 setDialogFixed(1);
 setDialogBox(500, 250);
 setDialogMargin(25);
+setDialogFace(spr_corazon);
 addDialogLine("* Hola... humano, veo que finalment has encontrado mi escondite. Supongo que no hay nada mas que presentarme, no?");
 addDialogLine("* You called for help...");
 addDialogLine("{FF0000}* But nobody came.");
