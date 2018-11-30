@@ -24,7 +24,6 @@ with (obj_dController)
         cDialog.dTextMaxW = dTextMaxW;
         cDialog.imgSpd = imgSpd;
         cDialog.m3spr = m3spr;
-        cDialog.fMargin = fMargin;
     } else {
         var pSize = string_length(cDialog.dText[cDialog.tPage]);   
         
