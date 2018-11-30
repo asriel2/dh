@@ -82,7 +82,7 @@ cfString = "";
 if (dText[tPage] != "")
 {   
     draw_set_font(dFont[tPage]);
-    image_speed = iSpeed[tPage];
+    image_speed = imgSpd[tPage];
     x = xPos[tPage];
     y = yPos[tPage];
     
