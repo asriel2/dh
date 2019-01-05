@@ -128,7 +128,9 @@
       <scripts name="Misc">
         <script>scripts\addDialogLine.gml</script>
         <script>scripts\resetDialog.gml</script>
+        <script>scripts\resetDialogLines.gml</script>
         <script>scripts\showDialog.gml</script>
+        <script>scripts\dialogDisplaying.gml</script>
       </scripts>
     </scripts>
   </scripts>
@@ -168,6 +170,7 @@
     <objects name="Jugador">
       <object>objects\obj_jugador</object>
     </objects>
+    <object>objects\att_1</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\Room_Name</room>

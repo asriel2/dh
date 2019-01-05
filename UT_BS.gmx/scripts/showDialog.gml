@@ -3,6 +3,7 @@ with (obj_dController)
 {
     if (!instance_exists(cDialog))
     {
+        dDisplaying = true;
         cDialog = instance_create(x, y, obj_Dialog);
         cDialog.dText = dText;
         cDialog.dSound = dSound;
@@ -33,7 +34,11 @@ with (obj_dController)
         } else {
             cDialog.tPage++;
             cDialog.tCount = 0;
-            if (cDialog.tPage > tDialogs) destroy_object(cDialog);
+            if (cDialog.tPage == tDialogs) 
+            {
+                dDisplaying = false;
+                destroy_object(cDialog);
+            }
         }
     }
 }

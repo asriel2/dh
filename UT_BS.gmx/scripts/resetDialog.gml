@@ -2,10 +2,9 @@
 with (obj_dController) 
 {
     event_inherited();
-    cDialog = noone;
     tDialogs = 0;
     
-    for (var i = 0; i < 100; i = i + 1)
+    for (var i = 0; i != 100; ++i)
     {
         dHeigth[i] = 250;
         dWidth[i] = 500;
