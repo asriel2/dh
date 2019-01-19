@@ -88,6 +88,19 @@ if (canMove)
     hspeed = 0;
     vspeed = 0;
 }
+
+if (obj_teclado.deseleccionar_r)
+{
+    setDialogBSize(2);
+    setDialogMode(1);
+    setDialogBColor(make_color_rgb(12, 52, 45));
+    setDialogDColor(make_color_rgb(45, 89, 37));
+    addDialogLine("* {ff0000}Rafa {00ff00}is {0000ff}back {ffffff}xd");
+    addDialogLine("* {ff0000}Y {00ff00}eso {0000ff}es");
+    addDialogLine("* {ff0000}g{00ff00}a{0000ff}y{ffffff} :v");
+    showDialog();
+    resetDialog();
+}
 </string>
           </argument>
         </arguments>
